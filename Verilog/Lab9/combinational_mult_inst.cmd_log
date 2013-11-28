@@ -1,0 +1,13 @@
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/lab9new/combinational_mult_inst.xst" -ofn "C:/Users/phuang/Desktop/lab9new/combinational_mult_inst.syr" 
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/lab9new/combinational_mult_inst.xst" -ofn "C:/Users/phuang/Desktop/lab9new/combinational_mult_inst.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc combinational_mult_inst.ucf -p xc3s500e-fg320-5 combinational_mult_inst.ngc combinational_mult_inst.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o combinational_mult_inst_map.ncd combinational_mult_inst.ngd combinational_mult_inst.pcf 
+par -w -intstyle ise -ol high -t 1 combinational_mult_inst_map.ncd combinational_mult_inst.ncd combinational_mult_inst.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml combinational_mult_inst.twx combinational_mult_inst.ncd -o combinational_mult_inst.twr combinational_mult_inst.pcf -ucf combinational_mult_inst.ucf 
+bitgen -intstyle ise -f combinational_mult_inst.ut combinational_mult_inst.ncd 
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/lab9new/combinational_mult_inst.xst" -ofn "C:/Users/phuang/Desktop/lab9new/combinational_mult_inst.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc combinational_mult_inst.ucf -p xc3s500e-fg320-5 combinational_mult_inst.ngc combinational_mult_inst.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o combinational_mult_inst_map.ncd combinational_mult_inst.ngd combinational_mult_inst.pcf 
+par -w -intstyle ise -ol high -t 1 combinational_mult_inst_map.ncd combinational_mult_inst.ncd combinational_mult_inst.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml combinational_mult_inst.twx combinational_mult_inst.ncd -o combinational_mult_inst.twr combinational_mult_inst.pcf -ucf combinational_mult_inst.ucf 
+bitgen -intstyle ise -f combinational_mult_inst.ut combinational_mult_inst.ncd 

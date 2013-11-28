@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "F:/Lab5/testhalfadder_isim_beh.exe" -prj "F:/Lab5/testhalfadder_beh.prj" "work.testhalfadder" "work.glbl" 

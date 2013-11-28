@@ -1,0 +1,9 @@
+vhdtdtfi -lib work {C:/Users/Paula/Google Drive/Xilinx/Lab5/halfadder.v} -lang verilog -prj Lab5 -o halfadder.spl -module halfadder -template C:/Xilinx/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e halfadder.spl {C:/Users/Paula/Google Drive/Xilinx/Lab5/halfadder.sym} 
+xst -intstyle ise -ifn "C:/Users/Paula/Google Drive/Xilinx/Lab5/halfadder.xst" -ofn "C:/Users/Paula/Google Drive/Xilinx/Lab5/halfadder.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 "halfadder.ngc" halfadder.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o halfadder_map.ncd halfadder.ngd halfadder.pcf 
+par -w -intstyle ise -ol high -t 1 halfadder_map.ncd halfadder.ncd halfadder.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml halfadder.twx halfadder.ncd -o halfadder.twr halfadder.pcf 
+vhdtdtfi -lib work {C:/Users/Paula/Google Drive/Xilinx/Lab5/halfadder.v} -lang verilog -prj Lab5 -o halfadder.spl -module halfadder -template C:/Xilinx/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e halfadder.spl {C:/Users/Paula/Google Drive/Xilinx/Lab5/halfadder.sym} 

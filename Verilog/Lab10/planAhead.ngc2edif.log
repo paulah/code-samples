@@ -1,0 +1,18 @@
+Release 14.5 - ngc2edif P.58f (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Reading design product_top.ngc ...
+WARNING:NetListWriters:298 - No output is written to product_top.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus gb/coinV/coinValue_mux0000<3 : 0> on
+   block product_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus pc/cost<6 : 0> on block product_top is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus pc/cost_mux0000<6 : 0> on block
+   product_top is not reconstructed, because there are some missing bus signals.
+  finished :Prep
+Writing EDIF netlist file product_top.edif ...
+ngc2edif: Total memory usage is 75784 kilobytes
+

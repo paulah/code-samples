@@ -1,0 +1,15 @@
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/lab9new/booth_mult_inst.xst" -ofn "C:/Users/phuang/Desktop/lab9new/booth_mult_inst.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc combinational_mult_inst.ucf -p xc3s500e-fg320-5 booth_mult_inst.ngc booth_mult_inst.ngd  
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/lab9new/booth_mult_inst.xst" -ofn "C:/Users/phuang/Desktop/lab9new/booth_mult_inst.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc combinational_mult_inst.ucf -p xc3s500e-fg320-5 booth_mult_inst.ngc booth_mult_inst.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc combinational_mult_inst.ucf -p xc3s500e-fg320-5 booth_mult_inst.ngc booth_mult_inst.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 booth_mult_inst.ngc booth_mult_inst.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o booth_mult_inst_map.ncd booth_mult_inst.ngd booth_mult_inst.pcf 
+par -w -intstyle ise -ol high -t 1 booth_mult_inst_map.ncd booth_mult_inst.ncd booth_mult_inst.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml booth_mult_inst.twx booth_mult_inst.ncd -o booth_mult_inst.twr booth_mult_inst.pcf 
+bitgen -intstyle ise -f booth_mult_inst.ut booth_mult_inst.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc booth_mult_inst.ucf -p xc3s500e-fg320-5 booth_mult_inst.ngc booth_mult_inst.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o booth_mult_inst_map.ncd booth_mult_inst.ngd booth_mult_inst.pcf 
+par -w -intstyle ise -ol high -t 1 booth_mult_inst_map.ncd booth_mult_inst.ncd booth_mult_inst.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml booth_mult_inst.twx booth_mult_inst.ncd -o booth_mult_inst.twr booth_mult_inst.pcf -ucf booth_mult_inst.ucf 
+bitgen -intstyle ise -f booth_mult_inst.ut booth_mult_inst.ncd 

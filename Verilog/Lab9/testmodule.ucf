@@ -1,0 +1,27 @@
+
+
+
+NET "clk" LOC = B8;
+NET "clr" LOC = H13;
+NET "rs[0]" LOC = D7;
+NET "rs[1]" LOC = E8;
+NET "rs[2]" LOC = E9;
+NET "rs[3]" LOC = C9;
+NET "rc" LOC = A8;
+NET "ls[0]" LOC = G9;
+NET "ls[1]" LOC = F9;
+NET "ls[2]" LOC = D10;
+NET "ls[3]" LOC = A10;
+NET "lc" LOC = B10;
+
+# PlanAhead Generated physical constraints 
+
+NET "clock[7]" LOC = B4;
+NET "clock[8]" LOC = A4;
+NET "clock[9]" LOC = C3;
+NET "clock[10]" LOC = C4;
+NET "clock[11]" LOC = B6;
+NET "clock[12]" LOC = D5;
+NET "clock[13]" LOC = C5;
+NET "clock[14]" LOC = F7;
+NET "clock[15]" LOC = E7;

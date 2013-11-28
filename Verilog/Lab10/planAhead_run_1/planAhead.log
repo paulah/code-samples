@@ -1,0 +1,102 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Nov 18 15:44:52 2013
+# Process ID: 4232
+# Log file: F:/Lab10/planAhead_run_1/planAhead.log
+# Journal file: F:/Lab10/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -170 day(s)
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source F:/Lab10/pa.fromHdl.tcl
+# create_project -name Lab10 -dir "F:/Lab10/planAhead_run_1" -part xc3s500efg320-5
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "VendingMachine_top2.ucf" [current_fileset -constrset]
+Adding file 'F:/Lab10/VendingMachine_top2.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {coinValue.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {productCost.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {Multiplexer.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {hex_to_7_seg_1.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {HexToBCD.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {get_balance.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {counter.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {Anode_Driver.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {product_top.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set_property top product_top $srcset
+# add_files [list {VendingMachine_top2.ucf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc3s500efg320-5
+Using Verific elaboration
+Parsing VHDL file "C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Analyzing Verilog file "F:/Lab10/coinValue.v" into library work
+Analyzing Verilog file "F:/Lab10/productCost.v" into library work
+Analyzing Verilog file "F:/Lab10/Multiplexer.v" into library work
+Analyzing Verilog file "F:/Lab10/hex_to_7_seg_1.v" into library work
+Analyzing Verilog file "F:/Lab10/HexToBCD.v" into library work
+Analyzing Verilog file "F:/Lab10/get_balance.v" into library work
+Analyzing Verilog file "F:/Lab10/counter.v" into library work
+Analyzing Verilog file "F:/Lab10/Anode_Driver.v" into library work
+Analyzing Verilog file "F:/Lab10/product_top.v" into library work
+CRITICAL WARNING: [EDIF 20-96] Could not resolve non-primitive black box cell 'hex_to_7_seg_1' instantiated as 'decod' [F:/Lab10/product_top.v:61]
+Resolution: File names need to match cell names: an EDIF definition will be found in hex_to_7_seg_1.edf; an HDL definition may be placed in any Verilog/VHDL file.
+INFO: [Designutils 20-910] Reading macro library C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/hd_int_macros.edn
+Parsing EDIF File [C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/hd_int_macros.edn]
+Finished Parsing EDIF File [C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/hd_int_macros.edn]
+Loading clock regions from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/ClockBuffers.xml
+Loading package from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/fg320/Package.xml
+Loading io standards from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/IOStandards.xml
+INFO: [Device 21-19] Loading pkg sso from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/fg320/SSORules.xml
+Loading list of drcs for the architecture : C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/drc.xml
+INFO: [Timing 38-77] Reading timing library C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/spartan3e-5.lib.
+INFO: [Timing 38-34] Done reading timing library C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/spartan3e-5.lib.
+Parsing UCF File [F:/Lab10/VendingMachine_top2.ucf]
+Finished Parsing UCF File [F:/Lab10/VendingMachine_top2.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 984426ca
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin H13 [get_ports {coins[2]}]
+endgroup
+startgroup
+set_property package_pin E18 [get_ports {coins[1]}]
+endgroup
+startgroup
+set_property package_pin D18 [get_ports {coins[0]}]
+endgroup
+save_constraints
+exit
+ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
+HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+ (See F:/Lab10\planAhead_pid4232.debug)
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Mon Nov 18 15:45:40 2013...
+INFO: [Common 17-83] Releasing license: PlanAhead

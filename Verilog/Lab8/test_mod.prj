@@ -1,0 +1,7 @@
+verilog work "halfadder.v"
+verilog work "fulladder.v"
+verilog work "rippleAdder4bit.v"
+verilog work "lookaheadAdder4bit.v"
+verilog work "counter.v"
+verilog work "ClockConverter.v"
+verilog work "test_mod.v"

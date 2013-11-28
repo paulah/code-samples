@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Oct 14 14:54:06 2013
+# Process ID: 6036
+# Log file: F:/Lab5/planAhead_run_1/planAhead.log
+# Journal file: F:/Lab5/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source F:/Lab5/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin B8 [get_ports clk]
+endgroup
+set_property package_pin "" [get_ports [list  cout]]
+startgroup
+set_property package_pin H13 [get_ports rst]
+endgroup
+set_property package_pin "" [get_ports [list  cout]]
+set_property package_pin "" [get_ports [list  clk]]
+set_property package_pin "" [get_ports [list  clk]]
+startgroup
+set_property package_pin B4 [get_ports {c1[3]}]
+endgroup
+startgroup
+set_property package_pin A4 [get_ports {c1[2]}]
+endgroup
+startgroup
+set_property package_pin C3 [get_ports {c1[1]}]
+endgroup
+startgroup
+set_property package_pin C4 [get_ports {c1[0]}]
+endgroup
+startgroup
+set_property package_pin B6 [get_ports cout]
+endgroup
+startgroup
+set_property package_pin D5 [get_ports sum]
+endgroup
+startgroup
+set_property package_pin C5 [get_ports clk]
+endgroup
+save_constraints

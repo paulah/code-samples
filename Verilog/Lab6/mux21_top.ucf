@@ -1,0 +1,20 @@
+
+
+NET "s[0]" LOC = G18;
+NET "s[1]" LOC = H18;
+NET "reset" LOC = H13;
+NET "y[0]" LOC = B4;
+NET "y[2]" LOC = C3;
+NET "y[1]" LOC = A4;
+NET "y[3]" LOC = C4;
+NET "clk" LOC = B6;
+
+NET "clk" CLOCK_DEDICATED_ROUTE = FALSE;
+
+
+# PlanAhead Generated physical constraints 
+
+NET "counter[0]" LOC = D5;
+NET "counter[1]" LOC = C5;
+NET "counter[3]" LOC = E7;
+NET "counter[2]" LOC = F7;

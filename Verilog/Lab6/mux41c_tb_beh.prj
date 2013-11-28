@@ -1,0 +1,3 @@
+verilog work "mux41c.v"
+verilog work "mux41c_tb.v"
+verilog work "C:/Xilinx/ISE_DS/ISE//verilog/src/glbl.v"

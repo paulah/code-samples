@@ -1,0 +1,3 @@
+verilog isim_temp "AnodeDriver.v"
+verilog isim_temp "AnodeDriver_tb.v"
+verilog isim_temp "C:/Xilinx/ISE_DS/ISE//verilog/src/glbl.v"

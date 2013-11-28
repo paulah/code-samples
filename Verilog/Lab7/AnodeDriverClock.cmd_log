@@ -1,0 +1,23 @@
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.xst" -ofn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.syr" 
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.xst" -ofn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.syr" 
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.xst" -ofn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.syr" 
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.xst" -ofn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.syr" 
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.xst" -ofn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc AnodeDriverClock.ucf -p xc3s500e-fg320-5 AnodeDriverClock.ngc AnodeDriverClock.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o AnodeDriverClock_map.ncd AnodeDriverClock.ngd AnodeDriverClock.pcf 
+par -w -intstyle ise -ol high -t 1 AnodeDriverClock_map.ncd AnodeDriverClock.ncd AnodeDriverClock.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml AnodeDriverClock.twx AnodeDriverClock.ncd -o AnodeDriverClock.twr AnodeDriverClock.pcf -ucf AnodeDriverClock.ucf 
+bitgen -intstyle ise -f AnodeDriverClock.ut AnodeDriverClock.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc AnodeDriverClock.ucf -p xc3s500e-fg320-5 AnodeDriverClock.ngc AnodeDriverClock.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o AnodeDriverClock_map.ncd AnodeDriverClock.ngd AnodeDriverClock.pcf 
+par -w -intstyle ise -ol high -t 1 AnodeDriverClock_map.ncd AnodeDriverClock.ncd AnodeDriverClock.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml AnodeDriverClock.twx AnodeDriverClock.ncd -o AnodeDriverClock.twr AnodeDriverClock.pcf -ucf AnodeDriverClock.ucf 
+bitgen -intstyle ise -f AnodeDriverClock.ut AnodeDriverClock.ncd 
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.xst" -ofn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.syr" 
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.xst" -ofn "C:/Users/phuang/Desktop/Lab7/AnodeDriverClock.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc AnodeDriverClock.ucf -p xc3s500e-fg320-5 AnodeDriverClock.ngc AnodeDriverClock.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o AnodeDriverClock_map.ncd AnodeDriverClock.ngd AnodeDriverClock.pcf 
+par -w -intstyle ise -ol high -t 1 AnodeDriverClock_map.ncd AnodeDriverClock.ncd AnodeDriverClock.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml AnodeDriverClock.twx AnodeDriverClock.ncd -o AnodeDriverClock.twr AnodeDriverClock.pcf -ucf AnodeDriverClock.ucf 
+bitgen -intstyle ise -f AnodeDriverClock.ut AnodeDriverClock.ncd 
+xst -intstyle ise -ifn "C:/Users/Paula/Google Drive/Xilinx/Lab7 post/AnodeDriverClock.xst" -ofn "C:/Users/Paula/Google Drive/Xilinx/Lab7 post/AnodeDriverClock.syr" 

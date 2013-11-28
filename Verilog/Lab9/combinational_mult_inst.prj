@@ -1,0 +1,8 @@
+verilog work "full_adder.v"
+verilog work "combinational_array_block.v"
+verilog work "Multiplexer.v"
+verilog work "hex_to_7_seg_1.v"
+verilog work "counter.v"
+verilog work "combinational_array_mult.v"
+verilog work "Anode_Driver.v"
+verilog work "combinational_mult_inst.v"

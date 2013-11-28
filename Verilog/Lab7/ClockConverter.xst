@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Paula/Google Drive/Xilinx/Lab7/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Paula/Google Drive/Xilinx/Lab7/xst"
+elaborate
+-ifn ClockConverter.prj
+-ifmt mixed

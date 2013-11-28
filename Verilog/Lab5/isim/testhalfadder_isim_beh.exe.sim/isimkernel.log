@@ -1,0 +1,29 @@
+Command line:
+   testhalfadder_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  65427
+
+Mon Oct 14 14:38:30 2013
+
+
+ Elaboration Time: 0.0156 sec
+
+ Current Memory Usage: 503.685 Meg
+
+ Total Signals          : 19
+ Total Nets             : 17
+ Total Signal Drivers   : 9
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 11
+ Total Traceable Variables  : 21
+ Total Scalar Nets and Variables : 131
+Total Line Count : 26
+
+ Total Simulation Time: 0.124801 sec
+
+ Current Memory Usage: 504.734 Meg
+
+Mon Oct 14 16:09:35 2013
+

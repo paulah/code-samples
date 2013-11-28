@@ -1,0 +1,5 @@
+verilog work "mux21n.v"
+verilog work "mux21_4bit.v"
+verilog work "theCounter.v"
+verilog work "mux41_4bit1.vf"
+verilog work "mux41_4bit_counter.v"

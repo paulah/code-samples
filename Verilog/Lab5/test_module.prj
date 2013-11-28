@@ -1,0 +1,4 @@
+verilog work "halfadder.v"
+verilog work "fulladder.vf"
+verilog work "counter.v"
+verilog work "test_module.v"

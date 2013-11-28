@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\ntwombly\Desktop\Lab6\mux41_4bit_counter.ncd
+OUTFILE=C:\Users\ntwombly\Desktop\Lab6\mux41_4bit_counter.bit
+FAMILY=Spartan3E
+PART=xc3s500e-5fg320
+WORKINGDIR=C:\Users\ntwombly\Desktop\Lab6
+LICENSE=WebPack
+USER_INFO=174913954_0_0_234

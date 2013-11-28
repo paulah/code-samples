@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=F:\Lab8\test_mod.ncd
+OUTFILE=F:\Lab8\test_mod.bit
+FAMILY=Spartan3E
+PART=xc3s500e-5fg320
+WORKINGDIR=F:\Lab8
+LICENSE=WebPack
+USER_INFO=174913954_0_0_234

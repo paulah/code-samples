@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "F:/Lab8/test_mod.xst" -ofn "F:/Lab8/test_mod.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc test_mod.ucf -p xc3s500e-fg320-5 test_mod.ngc test_mod.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o test_mod_map.ncd test_mod.ngd test_mod.pcf 
+par -w -intstyle ise -ol high -t 1 test_mod_map.ncd test_mod.ncd test_mod.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml test_mod.twx test_mod.ncd -o test_mod.twr test_mod.pcf -ucf test_mod.ucf 
+bitgen -intstyle ise -f test_mod.ut test_mod.ncd 

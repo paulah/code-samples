@@ -1,0 +1,9 @@
+MODULE ripple_carry_adder
+	SUBMODULE full_adder
+		INSTANCE XLXI_1
+	SUBMODULE full_adder
+		INSTANCE XLXI_2
+	SUBMODULE full_adder
+		INSTANCE XLXI_3
+	SUBMODULE half_adder
+		INSTANCE XLXI_4

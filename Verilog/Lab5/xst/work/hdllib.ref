@@ -1,0 +1,4 @@
+MO halfadder NULL halfadder.v vlg33/halfadder.bin 1381779647
+MO fulladder NULL fulladder.vf vlg33/fulladder.bin 1381779647
+MO counter NULL counter.v vlg10/counter.bin 1381779647
+MO test_module NULL test_module.v vlg4D/test__module.bin 1381779647

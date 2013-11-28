@@ -1,0 +1,11 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Nov 18 16:16:41 2013
+# Process ID: 5924
+# Log file: C:/Users/civey14/Desktop/Lab10/planAhead_run_4/planAhead.log
+# Journal file: C:/Users/civey14/Desktop/Lab10/planAhead_run_4/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source C:/Users/civey14/Desktop/Lab10/pa.fromHdl.tcl
+update_compile_order -fileset sim_1

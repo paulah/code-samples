@@ -1,0 +1,3 @@
+verilog work "ClockConverter.v"
+verilog work "ClockConverter_tb.v"
+verilog work "C:/Xilinx/ISE_DS/ISE//verilog/src/glbl.v"

@@ -1,0 +1,87 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Oct 28 14:45:43 2013
+# Process ID: 1356
+# Log file: C:/Users/phuang/Desktop/Lab7/planAhead_run_1/planAhead.log
+# Journal file: C:/Users/phuang/Desktop/Lab7/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source C:/Users/phuang/Desktop/Lab7/pa.fromNetlist.tcl
+startgroup
+set_property package_pin R17 [get_ports {a[3]}]
+endgroup
+startgroup
+set_property package_pin N17 [get_ports {a[2]}]
+endgroup
+startgroup
+set_property package_pin L13 [get_ports {a[1]}]
+endgroup
+startgroup
+set_property package_pin L14 [get_ports {a[0]}]
+endgroup
+startgroup
+set_property package_pin F15 [get_ports {anode_select[3]}]
+endgroup
+startgroup
+set_property package_pin C18 [get_ports {anode_select[2]}]
+endgroup
+startgroup
+set_property package_pin H17 [get_ports {anode_select[1]}]
+endgroup
+startgroup
+set_property package_pin F17 [get_ports {anode_select[0]}]
+endgroup
+startgroup
+set_property package_pin K17 [get_ports {b[3]}]
+endgroup
+startgroup
+set_property package_pin K18 [get_ports {b[2]}]
+endgroup
+startgroup
+set_property package_pin H18 [get_ports {b[1]}]
+endgroup
+startgroup
+set_property package_pin G18 [get_ports {b[0]}]
+endgroup
+startgroup
+set_property package_pin H13 [get_ports {c[3]}]
+endgroup
+startgroup
+set_property package_pin E18 [get_ports {c[2]}]
+endgroup
+startgroup
+set_property package_pin D18 [get_ports {c[1]}]
+endgroup
+save_constraints
+startgroup
+set_property package_pin B18 [get_ports {c[0]}]
+endgroup
+startgroup
+set_property package_pin H14 [get_ports {data_lines[6]}]
+endgroup
+startgroup
+set_property package_pin J17 [get_ports {data_lines[5]}]
+endgroup
+startgroup
+set_property package_pin G14 [get_ports {data_lines[4]}]
+endgroup
+startgroup
+set_property package_pin D16 [get_ports {data_lines[3]}]
+endgroup
+startgroup
+set_property package_pin D17 [get_ports {data_lines[2]}]
+endgroup
+startgroup
+set_property package_pin F18 [get_ports {data_lines[1]}]
+endgroup
+save_constraints
+startgroup
+set_property package_pin L18 [get_ports {data_lines[0]}]
+endgroup
+set_property package_pin "" [get_ports [list  clock50]]
+set_property package_pin "" [get_ports [list  reset]]
+startgroup
+set_property package_pin B8 [get_ports clock50]
+endgroup
+save_constraints

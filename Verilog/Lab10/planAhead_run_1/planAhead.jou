@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Nov 18 15:44:52 2013
+# Process ID: 4232
+# Log file: F:/Lab10/planAhead_run_1/planAhead.log
+# Journal file: F:/Lab10/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source F:/Lab10/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin H13 [get_ports {coins[2]}]
+endgroup
+startgroup
+set_property package_pin E18 [get_ports {coins[1]}]
+endgroup
+startgroup
+set_property package_pin D18 [get_ports {coins[0]}]
+endgroup
+save_constraints

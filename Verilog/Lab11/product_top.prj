@@ -1,0 +1,6 @@
+verilog work "shiftAdd.v"
+verilog work "Multiplexer.v"
+verilog work "hex_to_7_seg_1.v"
+verilog work "counter.v"
+verilog work "Anode_Driver.v"
+verilog work "product_top.v"

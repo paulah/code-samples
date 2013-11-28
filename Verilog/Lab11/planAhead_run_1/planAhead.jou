@@ -1,0 +1,66 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Nov 25 14:39:02 2013
+# Process ID: 5564
+# Log file: F:/Lab11/planAhead_run_1/planAhead.log
+# Journal file: F:/Lab11/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source F:/Lab11/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin E9 [get_ports {Aout[3]}]
+endgroup
+startgroup
+set_property package_pin E9 [get_ports {Aout[3]}]
+endgroup
+startgroup
+set_property package_pin C9 [get_ports {Aout[2]}]
+endgroup
+startgroup
+set_property package_pin A8 [get_ports {Aout[1]}]
+endgroup
+startgroup
+set_property package_pin G9 [get_ports {Aout[0]}]
+endgroup
+startgroup
+set_property package_pin F9 [get_ports {Bout[3]}]
+endgroup
+startgroup
+set_property package_pin D10 [get_ports {Bout[2]}]
+endgroup
+startgroup
+set_property package_pin A10 [get_ports {Bout[1]}]
+endgroup
+startgroup
+set_property package_pin B10 [get_ports {Bout[0]}]
+endgroup
+startgroup
+set_property package_pin A11 [get_ports {P[7]}]
+endgroup
+startgroup
+set_property package_pin D11 [get_ports {P[6]}]
+endgroup
+startgroup
+set_property package_pin E10 [get_ports {P[5]}]
+endgroup
+startgroup
+set_property package_pin B11 [get_ports {P[4]}]
+endgroup
+startgroup
+set_property package_pin C11 [get_ports {P[3]}]
+endgroup
+startgroup
+set_property package_pin E11 [get_ports {P[2]}]
+endgroup
+startgroup
+set_property package_pin F11 [get_ports {P[1]}]
+endgroup
+startgroup
+set_property package_pin D12 [get_ports {P[0]}]
+endgroup
+startgroup
+set_property package_pin E12 [get_ports {P[0]}]
+endgroup
+save_constraints

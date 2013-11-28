@@ -1,0 +1,204 @@
+xst -intstyle ise -ifn "F:/Lab10/product_top.xst" -ofn "F:/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "F:/Lab10/product_top.xst" -ofn "F:/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "F:/Lab10/product_top.xst" -ofn "F:/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "F:/Lab10/product_top.xst" -ofn "F:/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 
+xst -intstyle ise -ifn "C:/Users/civey14/Desktop/Lab10/product_top.xst" -ofn "C:/Users/civey14/Desktop/Lab10/product_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc VendingMachine_top2.ucf -p xc3s500e-fg320-5 product_top.ngc product_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o product_top_map.ncd product_top.ngd product_top.pcf 
+par -w -intstyle ise -ol high -t 1 product_top_map.ncd product_top.ncd product_top.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr product_top.pcf -ucf VendingMachine_top2.ucf 
+bitgen -intstyle ise -f product_top.ut product_top.ncd 

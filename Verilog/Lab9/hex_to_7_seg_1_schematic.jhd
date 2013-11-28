@@ -1,0 +1,3 @@
+MODULE hex_to_7_seg_1_schematic
+	SUBMODULE hex_to_7_seg_1
+		INSTANCE XLXI_1

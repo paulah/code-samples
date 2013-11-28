@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Oct 21 15:07:37 2013
+# Process ID: 6948
+# Log file: C:/Users/ntwombly/Desktop/Lab6/planAhead_run_5/planAhead.log
+# Journal file: C:/Users/ntwombly/Desktop/Lab6/planAhead_run_5/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source C:/Users/ntwombly/Desktop/Lab6/pa.fromNetlist.tcl

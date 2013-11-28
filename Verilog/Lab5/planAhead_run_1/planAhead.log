@@ -1,0 +1,103 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Oct 14 14:54:06 2013
+# Process ID: 6036
+# Log file: F:/Lab5/planAhead_run_1/planAhead.log
+# Journal file: F:/Lab5/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -135 day(s)
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source F:/Lab5/pa.fromHdl.tcl
+# create_project -name Lab5 -dir "F:/Lab5/planAhead_run_1" -part xc3s500efg320-5
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "test_module.ucf" [current_fileset -constrset]
+Adding file 'F:/Lab5/test_module.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {halfadder.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {fulladder.vf}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {counter.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {test_module.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set_property top test_module $srcset
+# add_files [list {test_module.ucf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc3s500efg320-5
+Using Verific elaboration
+Parsing VHDL file "C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Analyzing Verilog file "F:/Lab5/halfadder.v" into library work
+Analyzing Verilog file "F:/Lab5/fulladder.vf" into library work
+Analyzing Verilog file "F:/Lab5/counter.v" into library work
+Analyzing Verilog file "F:/Lab5/test_module.v" into library work
+INFO: [Designutils 20-910] Reading macro library C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/hd_int_macros.edn
+Parsing EDIF File [C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/hd_int_macros.edn]
+Finished Parsing EDIF File [C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/hd_int_macros.edn]
+Loading clock regions from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/ClockBuffers.xml
+Loading package from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/fg320/Package.xml
+Loading io standards from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/IOStandards.xml
+INFO: [Device 21-19] Loading pkg sso from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/fg320/SSORules.xml
+Loading list of drcs for the architecture : C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/drc.xml
+INFO: [Timing 38-77] Reading timing library C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/spartan3e-5.lib.
+INFO: [Timing 38-34] Done reading timing library C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/spartan3e-5.lib.
+Parsing UCF File [F:/Lab5/test_module.ucf]
+Finished Parsing UCF File [F:/Lab5/test_module.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 4edc9841
+open_rtl_design: Time (s): elapsed = 00:00:06 . Memory (MB): peak = 524.914 ; gain = 113.484
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin B8 [get_ports clk]
+endgroup
+set_property package_pin "" [get_ports [list  cout]]
+startgroup
+set_property package_pin H13 [get_ports rst]
+endgroup
+set_property package_pin "" [get_ports [list  cout]]
+set_property package_pin "" [get_ports [list  clk]]
+set_property package_pin "" [get_ports [list  clk]]
+startgroup
+set_property package_pin B4 [get_ports {c1[3]}]
+endgroup
+startgroup
+set_property package_pin A4 [get_ports {c1[2]}]
+endgroup
+startgroup
+set_property package_pin C3 [get_ports {c1[1]}]
+endgroup
+startgroup
+set_property package_pin C4 [get_ports {c1[0]}]
+endgroup
+startgroup
+set_property package_pin B6 [get_ports cout]
+endgroup
+startgroup
+set_property package_pin D5 [get_ports sum]
+endgroup
+startgroup
+set_property package_pin C5 [get_ports clk]
+endgroup
+save_constraints
+exit
+ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
+ (See F:/Lab5\planAhead_pid6036.debug)
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Mon Oct 14 16:07:17 2013...
+INFO: [Common 17-83] Releasing license: PlanAhead

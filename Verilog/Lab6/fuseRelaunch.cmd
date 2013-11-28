@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/Paula/Google Drive/Xilinx/Lab6/mux41c_tb_isim_beh.exe" -prj "C:/Users/Paula/Google Drive/Xilinx/Lab6/mux41c_tb_beh.prj" "work.mux41c_tb" "work.glbl" 

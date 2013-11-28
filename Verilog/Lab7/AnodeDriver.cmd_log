@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/phuang/Desktop/Lab7/AnodeDriver.xst" -ofn "C:/Users/phuang/Desktop/Lab7/AnodeDriver.syr" 

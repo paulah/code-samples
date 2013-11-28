@@ -1,0 +1,54 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.5
+//  \   \         Application : sch2hdl
+//  /   /         Filename : mux41_4bit1.vf
+// /___/   /\     Timestamp : 10/21/2013 16:03:11
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3e -verilog C:/Users/ntwombly/Desktop/Lab6/mux41_4bit1.vf -w C:/Users/ntwombly/Desktop/Lab6/mux41_4bit1.sch
+//Design Name: mux41_4bit1
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module mux41_4bit1(a, 
+                   b, 
+                   c, 
+                   d, 
+                   s0, 
+                   s1, 
+                   y);
+
+    input [3:0] a;
+    input [3:0] b;
+    input [3:0] c;
+    input [3:0] d;
+    input s0;
+    input s1;
+   output [3:0] y;
+   
+   wire [3:0] XLXN_1;
+   wire [3:0] XLXN_2;
+   
+   mux21_4bit  XLXI_1 (.a(a[3:0]), 
+                      .b(b[3:0]), 
+                      .s(s0), 
+                      .y(XLXN_1[3:0]));
+   mux21_4bit  XLXI_2 (.a(c[3:0]), 
+                      .b(d[3:0]), 
+                      .s(s0), 
+                      .y(XLXN_2[3:0]));
+   mux21_4bit  XLXI_3 (.a(XLXN_1[3:0]), 
+                      .b(XLXN_2[3:0]), 
+                      .s(s1), 
+                      .y(y[3:0]));
+endmodule

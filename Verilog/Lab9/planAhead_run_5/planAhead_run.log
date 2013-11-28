@@ -1,0 +1,138 @@
+
+****** PlanAhead v14.5 (64-bit)
+  **** Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+    ** Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -163 day(s)
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source C:/Users/phuang/Desktop/lab9new/pa.fromHdl.tcl
+# create_project -name lab9new -dir "C:/Users/phuang/Desktop/lab9new/planAhead_run_5" -part xc3s500efg320-5
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "booth_mult_inst.ucf" [current_fileset -constrset]
+Adding file 'C:/Users/phuang/Desktop/lab9new/booth_mult_inst.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {booth_encoder.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {Multiplexer.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {hex_to_7_seg_1.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {counter.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {booth_mult.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {Anode_Driver.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {booth_mult_inst.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set_property top booth_mult_inst $srcset
+# add_files [list {booth_mult_inst.ucf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc3s500efg320-5
+Using Verific elaboration
+Parsing VHDL file "C:/Xilinx/14.5/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Analyzing Verilog file "C:/Users/phuang/Desktop/lab9new/booth_encoder.v" into library work
+Analyzing Verilog file "C:/Users/phuang/Desktop/lab9new/Multiplexer.v" into library work
+Analyzing Verilog file "C:/Users/phuang/Desktop/lab9new/hex_to_7_seg_1.v" into library work
+Analyzing Verilog file "C:/Users/phuang/Desktop/lab9new/counter.v" into library work
+Analyzing Verilog file "C:/Users/phuang/Desktop/lab9new/booth_mult.v" into library work
+Analyzing Verilog file "C:/Users/phuang/Desktop/lab9new/Anode_Driver.v" into library work
+Analyzing Verilog file "C:/Users/phuang/Desktop/lab9new/booth_mult_inst.v" into library work
+CRITICAL WARNING: [EDIF 20-96] Could not resolve non-primitive black box cell 'hex_to_7_seg_1' instantiated as 'decod' [C:/Users/phuang/Desktop/lab9new/booth_mult_inst.v:75]
+Resolution: File names need to match cell names: an EDIF definition will be found in hex_to_7_seg_1.edf; an HDL definition may be placed in any Verilog/VHDL file.
+INFO: [Designutils 20-910] Reading macro library C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/hd_int_macros.edn
+Parsing EDIF File [C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/hd_int_macros.edn]
+Finished Parsing EDIF File [C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/hd_int_macros.edn]
+Loading clock regions from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/ClockBuffers.xml
+Loading package from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/fg320/Package.xml
+Loading io standards from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/IOStandards.xml
+INFO: [Device 21-19] Loading pkg sso from C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/xc3s500e/fg320/SSORules.xml
+Loading list of drcs for the architecture : C:/Xilinx/14.5/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3e/spartan3e/drc.xml
+INFO: [Timing 38-77] Reading timing library C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/spartan3e-5.lib.
+INFO: [Timing 38-34] Done reading timing library C:/Xilinx/14.5/ISE_DS/PlanAhead/data\parts/xilinx/spartan3e/spartan3e/spartan3e-5.lib.
+Parsing UCF File [C:/Users/phuang/Desktop/lab9new/booth_mult_inst.ucf]
+Finished Parsing UCF File [C:/Users/phuang/Desktop/lab9new/booth_mult_inst.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 2e932ae0
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin R17 [get_ports {A[3]}]
+endgroup
+startgroup
+set_property package_pin N17 [get_ports {A[2]}]
+endgroup
+startgroup
+set_property package_pin L13 [get_ports {A[1]}]
+endgroup
+startgroup
+set_property package_pin L14 [get_ports {A[0]}]
+endgroup
+startgroup
+set_property package_pin F15 [get_ports {anode_sig[3]}]
+endgroup
+startgroup
+set_property package_pin C18 [get_ports {anode_sig[2]}]
+endgroup
+startgroup
+set_property package_pin H17 [get_ports {anode_sig[1]}]
+endgroup
+startgroup
+set_property package_pin F17 [get_ports {anode_sig[0]}]
+endgroup
+startgroup
+set_property package_pin K17 [get_ports {B[3]}]
+endgroup
+startgroup
+set_property package_pin K18 [get_ports {B[2]}]
+endgroup
+startgroup
+set_property package_pin H18 [get_ports {B[1]}]
+endgroup
+startgroup
+set_property package_pin G18 [get_ports {B[0]}]
+endgroup
+startgroup
+set_property package_pin L18 [get_ports a]
+endgroup
+startgroup
+set_property package_pin F18 [get_ports b]
+endgroup
+startgroup
+set_property package_pin D17 [get_ports c]
+endgroup
+startgroup
+set_property package_pin D16 [get_ports clr]
+endgroup
+startgroup
+set_property package_pin H13 [get_ports clr]
+endgroup
+startgroup
+set_property package_pin D16 [get_ports d]
+endgroup
+startgroup
+set_property package_pin G14 [get_ports e]
+endgroup
+startgroup
+set_property package_pin J17 [get_ports f]
+endgroup
+startgroup
+set_property package_pin H14 [get_ports g]
+endgroup
+startgroup
+set_property package_pin B8 [get_ports clk]
+endgroup
+save_constraints

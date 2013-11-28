@@ -1,0 +1,4 @@
+verilog work "halfadder.v"
+verilog work "lookaheadAdder4bit.v"
+verilog work "lookaheadAdder4bit_tb.v"
+verilog work "C:/Xilinx/ISE_DS/ISE//verilog/src/glbl.v"

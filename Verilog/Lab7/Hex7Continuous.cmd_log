@@ -1,0 +1,2 @@
+vhdtdtfi -lib work {C:/Users/Paula/Google Drive/Xilinx/Lab7/Hex7Continuous.v} -lang verilog -prj Lab7 -o Hex7Continuous.spl -module Hex7Continuous -template C:/Xilinx/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Hex7Continuous.spl {C:/Users/Paula/Google Drive/Xilinx/Lab7/Hex7Continuous.sym} 

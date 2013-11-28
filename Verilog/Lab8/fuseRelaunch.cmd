@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/Paula/Google Drive/Xilinx/Lab8/lookaheadAdder4bit_tb_isim_beh.exe" -prj "C:/Users/Paula/Google Drive/Xilinx/Lab8/lookaheadAdder4bit_tb_beh.prj" "lookaheadAdder4bit_tb" "work.glbl" 

@@ -1,0 +1,7 @@
+verilog work "Nbit21mux.v"
+verilog work "Mux4bit.v"
+verilog work "mux4bit41.v"
+verilog work "Hex7Continuous.v"
+verilog work "ClockConverter.v"
+verilog work "AnodeDriver.v"
+verilog work "AnodeDriverClock.v"

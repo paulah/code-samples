@@ -1,0 +1,11 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Nov 25 15:04:28 2013
+# Process ID: 3336
+# Log file: F:/Lab11/planAhead_run_3/planAhead.log
+# Journal file: F:/Lab11/planAhead_run_3/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source F:/Lab11/pa.fromHdl.tcl
+update_compile_order -fileset sim_1

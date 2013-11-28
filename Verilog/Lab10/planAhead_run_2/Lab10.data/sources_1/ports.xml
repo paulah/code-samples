@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Interface Version="1" Minor="1">
+	<Ifc Id="ROOT" Top="1">
+		<Bus Id="anodes">
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="coins">
+			<Port Id="2" Dir="IN"/>
+			<Port Id="1" Dir="IN"/>
+			<Port Id="0" Dir="IN"/>
+		</Bus>
+		<Bus Id="switches">
+			<Port Id="3" Dir="IN"/>
+			<Port Id="2" Dir="IN"/>
+			<Port Id="1" Dir="IN"/>
+			<Port Id="0" Dir="IN"/>
+		</Bus>
+		<Port Id="clk" Dir="IN"/>
+		<Port Id="reset" Dir="IN"/>
+		<Port Id="a" Dir="OUT"/>
+		<Port Id="b" Dir="OUT"/>
+		<Port Id="c" Dir="OUT"/>
+		<Port Id="d" Dir="OUT"/>
+		<Port Id="e" Dir="OUT"/>
+		<Port Id="f" Dir="OUT"/>
+		<Port Id="g" Dir="OUT"/>
+	</Ifc>
+</Interface>
+

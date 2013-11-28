@@ -1,0 +1,196 @@
+--------------------------------------------------------------------------------
+Release 14.5 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.5\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 5
+-n 3 -fastpaths -xml AnodeDriverClock.twx AnodeDriverClock.ncd -o
+AnodeDriverClock.twr AnodeDriverClock.pcf -ucf AnodeDriverClock.ucf
+
+Design file:              AnodeDriverClock.ncd
+Physical constraint file: AnodeDriverClock.pcf
+Device,package,speed:     xc3s500e,fg320,-5 (PRODUCTION 1.27 2013-03-26)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clock50
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+reset       |    2.678(R)|   -0.022(R)|clock50_BUFGP     |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock clock50 to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+clock       |    8.047(R)|clock50_BUFGP     |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clock50
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clock50        |    5.097|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+a<0>           |data_lines<0>  |   10.933|
+a<0>           |data_lines<1>  |   10.542|
+a<0>           |data_lines<2>  |   11.256|
+a<0>           |data_lines<3>  |   10.814|
+a<0>           |data_lines<4>  |   10.883|
+a<0>           |data_lines<5>  |   10.566|
+a<0>           |data_lines<6>  |   10.450|
+a<1>           |data_lines<0>  |   10.316|
+a<1>           |data_lines<1>  |    9.920|
+a<1>           |data_lines<2>  |   10.634|
+a<1>           |data_lines<3>  |   10.325|
+a<1>           |data_lines<4>  |    9.847|
+a<1>           |data_lines<5>  |   10.100|
+a<1>           |data_lines<6>  |    9.833|
+a<2>           |data_lines<0>  |   10.777|
+a<2>           |data_lines<1>  |   10.437|
+a<2>           |data_lines<2>  |   11.151|
+a<2>           |data_lines<3>  |   10.890|
+a<2>           |data_lines<4>  |   10.745|
+a<2>           |data_lines<5>  |   10.609|
+a<2>           |data_lines<6>  |   10.294|
+a<3>           |data_lines<0>  |   12.264|
+a<3>           |data_lines<1>  |   11.902|
+a<3>           |data_lines<2>  |   12.616|
+a<3>           |data_lines<3>  |   12.212|
+a<3>           |data_lines<4>  |   11.112|
+a<3>           |data_lines<5>  |   11.937|
+a<3>           |data_lines<6>  |   11.781|
+b<0>           |data_lines<0>  |    9.866|
+b<0>           |data_lines<1>  |    9.475|
+b<0>           |data_lines<2>  |   10.189|
+b<0>           |data_lines<3>  |    9.747|
+b<0>           |data_lines<4>  |    9.816|
+b<0>           |data_lines<5>  |    9.499|
+b<0>           |data_lines<6>  |    9.383|
+b<1>           |data_lines<0>  |    9.816|
+b<1>           |data_lines<1>  |    9.420|
+b<1>           |data_lines<2>  |   10.134|
+b<1>           |data_lines<3>  |    9.825|
+b<1>           |data_lines<4>  |    9.347|
+b<1>           |data_lines<5>  |    9.600|
+b<1>           |data_lines<6>  |    9.333|
+b<2>           |data_lines<0>  |   10.300|
+b<2>           |data_lines<1>  |    9.960|
+b<2>           |data_lines<2>  |   10.674|
+b<2>           |data_lines<3>  |   10.413|
+b<2>           |data_lines<4>  |   10.268|
+b<2>           |data_lines<5>  |   10.132|
+b<2>           |data_lines<6>  |    9.817|
+b<3>           |data_lines<0>  |   11.393|
+b<3>           |data_lines<1>  |   11.031|
+b<3>           |data_lines<2>  |   11.745|
+b<3>           |data_lines<3>  |   11.341|
+b<3>           |data_lines<4>  |   10.241|
+b<3>           |data_lines<5>  |   11.066|
+b<3>           |data_lines<6>  |   10.910|
+c<0>           |data_lines<0>  |    9.712|
+c<0>           |data_lines<1>  |    9.321|
+c<0>           |data_lines<2>  |   10.035|
+c<0>           |data_lines<3>  |    9.593|
+c<0>           |data_lines<4>  |    9.662|
+c<0>           |data_lines<5>  |    9.345|
+c<0>           |data_lines<6>  |    9.229|
+c<1>           |data_lines<0>  |    9.303|
+c<1>           |data_lines<1>  |    8.907|
+c<1>           |data_lines<2>  |    9.621|
+c<1>           |data_lines<3>  |    9.312|
+c<1>           |data_lines<4>  |    8.834|
+c<1>           |data_lines<5>  |    9.087|
+c<1>           |data_lines<6>  |    8.820|
+c<2>           |data_lines<0>  |    9.067|
+c<2>           |data_lines<1>  |    8.727|
+c<2>           |data_lines<2>  |    9.441|
+c<2>           |data_lines<3>  |    9.180|
+c<2>           |data_lines<4>  |    9.035|
+c<2>           |data_lines<5>  |    8.899|
+c<2>           |data_lines<6>  |    8.584|
+c<3>           |data_lines<0>  |   10.779|
+c<3>           |data_lines<1>  |   10.417|
+c<3>           |data_lines<2>  |   11.131|
+c<3>           |data_lines<3>  |   10.727|
+c<3>           |data_lines<4>  |    9.627|
+c<3>           |data_lines<5>  |   10.452|
+c<3>           |data_lines<6>  |   10.296|
+d<0>           |data_lines<0>  |    9.549|
+d<0>           |data_lines<1>  |    9.158|
+d<0>           |data_lines<2>  |    9.872|
+d<0>           |data_lines<3>  |    9.430|
+d<0>           |data_lines<4>  |    9.499|
+d<0>           |data_lines<5>  |    9.182|
+d<0>           |data_lines<6>  |    9.066|
+d<1>           |data_lines<0>  |    9.617|
+d<1>           |data_lines<1>  |    9.221|
+d<1>           |data_lines<2>  |    9.935|
+d<1>           |data_lines<3>  |    9.626|
+d<1>           |data_lines<4>  |    9.148|
+d<1>           |data_lines<5>  |    9.401|
+d<1>           |data_lines<6>  |    9.134|
+d<2>           |data_lines<0>  |    9.606|
+d<2>           |data_lines<1>  |    9.266|
+d<2>           |data_lines<2>  |    9.980|
+d<2>           |data_lines<3>  |    9.719|
+d<2>           |data_lines<4>  |    9.574|
+d<2>           |data_lines<5>  |    9.438|
+d<2>           |data_lines<6>  |    9.123|
+d<3>           |data_lines<0>  |   10.413|
+d<3>           |data_lines<1>  |   10.051|
+d<3>           |data_lines<2>  |   10.765|
+d<3>           |data_lines<3>  |   10.361|
+d<3>           |data_lines<4>  |    9.261|
+d<3>           |data_lines<5>  |   10.086|
+d<3>           |data_lines<6>  |    9.930|
+---------------+---------------+---------+
+
+
+Analysis completed Mon Oct 28 15:05:58 2013 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 161 MB
+
+
+

@@ -1,0 +1,47 @@
+
+
+NET "A[3]" LOC = R17;
+NET "A[2]" LOC = N17;
+NET "A[1]" LOC = L13;
+NET "A[0]" LOC = L14;
+NET "B[3]" LOC = K17;
+NET "B[2]" LOC = K18;
+NET "B[1]" LOC = H18;
+NET "B[0]" LOC = G18;
+NET "anodes[0]" LOC = F17;
+NET "anodes[2]" LOC = C18;
+NET "anodes[1]" LOC = H17;
+NET "anodes[3]" LOC = F15;
+
+
+NET "a" LOC = L18;
+NET "b" LOC = F18;
+NET "c" LOC = D17;
+NET "d" LOC = D16;
+NET "e" LOC = G14;
+NET "f" LOC = J17;
+NET "g" LOC = H14;
+NET "reset" LOC = B18;
+NET "clk" LOC = B8;
+
+
+NET "Aout[3]" LOC = E9;
+NET "Aout[2]" LOC = C9;
+NET "Aout[1]" LOC = A8;
+NET "Aout[0]" LOC = G9;
+NET "Bout[3]" LOC = F9;
+NET "Bout[2]" LOC = D10;
+NET "Bout[1]" LOC = A10;
+NET "Bout[0]" LOC = B10;
+NET "P[7]" LOC = A11;
+NET "P[6]" LOC = D11;
+NET "P[5]" LOC = E10;
+NET "P[4]" LOC = B11;
+NET "P[3]" LOC = C11;
+NET "P[2]" LOC = E11;
+NET "P[1]" LOC = F11;
+NET "P[0]" LOC = E12;
+
+# PlanAhead Generated physical constraints 
+
+NET "clk_out" LOC = B16;

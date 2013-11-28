@@ -1,0 +1,2 @@
+vhdtdtfi -lib work {C:/Users/Paula/Google Drive/Xilinx/Lab6/mux21n.v} -lang verilog -prj Lab6 -o mux21n.spl -module mux21n -template C:/Xilinx/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e mux21n.spl {C:/Users/Paula/Google Drive/Xilinx/Lab6/mux21n.sym} 

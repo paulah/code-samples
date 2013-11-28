@@ -1,0 +1,78 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Nov 04 15:49:17 2013
+# Process ID: 2664
+# Log file: F:/Lab8/planAhead_run_1/planAhead.log
+# Journal file: F:/Lab8/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source F:/Lab8/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin E7 [get_ports Cin]
+endgroup
+startgroup
+set_property package_pin A6 [get_ports {A[3]}]
+endgroup
+startgroup
+set_property package_pin C7 [get_ports {A[2]}]
+endgroup
+startgroup
+set_property package_pin F8 [get_ports {A[1]}]
+endgroup
+startgroup
+set_property package_pin D7 [get_ports {A[0]}]
+endgroup
+startgroup
+set_property package_pin E8 [get_ports {B[3]}]
+endgroup
+startgroup
+set_property package_pin E9 [get_ports {B[2]}]
+endgroup
+startgroup
+set_property package_pin C9 [get_ports {B[1]}]
+endgroup
+startgroup
+set_property package_pin A8 [get_ports {B[0]}]
+endgroup
+startgroup
+set_property package_pin G9 [get_ports Cout_1]
+endgroup
+startgroup
+set_property package_pin F9 [get_ports {sum_1[3]}]
+endgroup
+startgroup
+set_property package_pin D10 [get_ports {sum_1[2]}]
+endgroup
+startgroup
+set_property package_pin A10 [get_ports {sum_1[1]}]
+endgroup
+startgroup
+set_property package_pin B10 [get_ports {sum_1[0]}]
+endgroup
+startgroup
+set_property package_pin A11 [get_ports Cout_r]
+endgroup
+startgroup
+set_property package_pin D11 [get_ports {sum_r[3]}]
+endgroup
+startgroup
+set_property package_pin E10 [get_ports {sum_r[2]}]
+endgroup
+startgroup
+set_property package_pin B11 [get_ports {sum_r[1]}]
+endgroup
+startgroup
+set_property package_pin C11 [get_ports {sum_r[0]}]
+endgroup
+startgroup
+set_property package_pin A16 [get_ports clk]
+endgroup
+startgroup
+set_property package_pin B18 [get_ports reset]
+endgroup
+startgroup
+set_property package_pin B8 [get_ports clock50]
+endgroup
+save_constraints

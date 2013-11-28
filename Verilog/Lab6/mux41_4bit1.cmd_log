@@ -1,0 +1,10 @@
+xst -intstyle ise -ifn "C:/Users/Paula/Google Drive/Xilinx/Lab6/mux41_4bit1.xst" -ofn "C:/Users/Paula/Google Drive/Xilinx/Lab6/mux41_4bit1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 "mux41_4bit1.ngc" mux41_4bit1.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o mux41_4bit1_map.ncd mux41_4bit1.ngd mux41_4bit1.pcf 
+par -w -intstyle ise -ol high -t 1 mux41_4bit1_map.ncd mux41_4bit1.ncd mux41_4bit1.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml mux41_4bit1.twx mux41_4bit1.ncd -o mux41_4bit1.twr mux41_4bit1.pcf 
+xst -intstyle ise -ifn "C:/Users/Paula/Google Drive/Xilinx/Lab6/mux41_4bit1.xst" -ofn "C:/Users/Paula/Google Drive/Xilinx/Lab6/mux41_4bit1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 "mux41_4bit1.ngc" mux41_4bit1.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o mux41_4bit1_map.ncd mux41_4bit1.ngd mux41_4bit1.pcf 
+par -w -intstyle ise -ol high -t 1 mux41_4bit1_map.ncd mux41_4bit1.ncd mux41_4bit1.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml mux41_4bit1.twx mux41_4bit1.ncd -o mux41_4bit1.twr mux41_4bit1.pcf 

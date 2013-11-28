@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Nov 25 14:43:49 2013
+# Process ID: 5456
+# Log file: F:/Lab11/planAhead_run_2/planAhead.log
+# Journal file: F:/Lab11/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source F:/Lab11/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin B16 [get_ports clk_out]
+endgroup
+save_constraints

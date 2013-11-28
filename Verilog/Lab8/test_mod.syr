@@ -1,0 +1,534 @@
+Release 14.5 - xst P.58f (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Reading design: test_mod.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "test_mod.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "test_mod"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : test_mod
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "halfadder.v" in library work
+Compiling verilog file "fulladder.v" in library work
+Module <halfadder> compiled
+Compiling verilog file "rippleAdder4bit.v" in library work
+Module <fulladder> compiled
+Compiling verilog file "lookaheadAdder4bit.v" in library work
+Module <rippleAdder4bit> compiled
+Compiling verilog file "counter.v" in library work
+Module <lookaheadAdder4bit> compiled
+Compiling verilog file "ClockConverter.v" in library work
+Module <counter> compiled
+Compiling verilog file "test_mod.v" in library work
+Module <ClockConverter> compiled
+Module <test_mod> compiled
+No errors in compilation
+Analysis of file <"test_mod.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <test_mod> in library <work>.
+
+Analyzing hierarchy for module <lookaheadAdder4bit> in library <work>.
+
+Analyzing hierarchy for module <rippleAdder4bit> in library <work>.
+
+Analyzing hierarchy for module <counter> in library <work> with parameters.
+	N = "00000000000000000000000000001001"
+
+Analyzing hierarchy for module <ClockConverter> in library <work>.
+
+Analyzing hierarchy for module <halfadder> in library <work>.
+
+Analyzing hierarchy for module <fulladder> in library <work>.
+
+Analyzing hierarchy for module <halfadder> in library <work>.
+
+Analyzing hierarchy for module <halfadder> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <test_mod>.
+Module <test_mod> is correct for synthesis.
+ 
+Analyzing module <lookaheadAdder4bit> in library <work>.
+Module <lookaheadAdder4bit> is correct for synthesis.
+ 
+Analyzing module <halfadder> in library <work>.
+Module <halfadder> is correct for synthesis.
+ 
+Analyzing module <rippleAdder4bit> in library <work>.
+Module <rippleAdder4bit> is correct for synthesis.
+ 
+Analyzing module <fulladder> in library <work>.
+Module <fulladder> is correct for synthesis.
+ 
+Analyzing module <counter> in library <work>.
+	N = 32'sb00000000000000000000000000001001
+Module <counter> is correct for synthesis.
+ 
+Analyzing module <ClockConverter> in library <work>.
+Module <ClockConverter> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <counter>.
+    Related source file is "counter.v".
+    Found 9-bit up counter for signal <q>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <counter> synthesized.
+
+
+Synthesizing Unit <ClockConverter>.
+    Related source file is "ClockConverter.v".
+    Found T flip-flop for signal <newclock>.
+    Found 16-bit up counter for signal <counter>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 T-type flip-flop(s).
+Unit <ClockConverter> synthesized.
+
+
+Synthesizing Unit <halfadder>.
+    Related source file is "halfadder.v".
+    Found 1-bit adder for signal <s>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <halfadder> synthesized.
+
+
+Synthesizing Unit <lookaheadAdder4bit>.
+    Related source file is "lookaheadAdder4bit.v".
+    Found 1-bit adder for signal <Cout>.
+    Found 4-bit xor2 for signal <sum>.
+    Found 1-bit adder for signal <c1>.
+    Found 1-bit adder for signal <c2>.
+    Found 1-bit adder for signal <c2$addsub0000> created at line 41.
+    Found 1-bit adder for signal <c3>.
+    Found 1-bit adder for signal <c3$addsub0000> created at line 42.
+    Found 1-bit adder for signal <Cout$addsub0000> created at line 43.
+    Found 1-bit adder for signal <Cout$addsub0001> created at line 43.
+    Found 1-bit adder for signal <Cout$addsub0002> created at line 43.
+    Summary:
+	inferred   9 Adder/Subtractor(s).
+Unit <lookaheadAdder4bit> synthesized.
+
+
+Synthesizing Unit <fulladder>.
+    Related source file is "fulladder.v".
+Unit <fulladder> synthesized.
+
+
+Synthesizing Unit <rippleAdder4bit>.
+    Related source file is "rippleAdder4bit.v".
+Unit <rippleAdder4bit> synthesized.
+
+
+Synthesizing Unit <test_mod>.
+    Related source file is "test_mod.v".
+Unit <test_mod> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 21
+ 1-bit adder                                           : 21
+# Counters                                             : 2
+ 16-bit up counter                                     : 1
+ 9-bit up counter                                      : 1
+# Toggle Registers                                     : 1
+ T flip-flop                                           : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 17
+ 1-bit adder                                           : 13
+ 1-bit adder carry in                                  : 4
+# Counters                                             : 2
+ 16-bit up counter                                     : 1
+ 9-bit up counter                                      : 1
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <test_mod> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block test_mod, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 26
+ Flip-Flops                                            : 26
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : test_mod.ngr
+Top Level Output File Name         : test_mod
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 22
+
+Cell Usage :
+# BELS                             : 106
+#      GND                         : 1
+#      INV                         : 3
+#      LUT1                        : 23
+#      LUT2                        : 3
+#      LUT3                        : 10
+#      LUT4                        : 15
+#      LUT4_L                      : 1
+#      MUXCY                       : 23
+#      MUXF5                       : 1
+#      VCC                         : 1
+#      XORCY                       : 25
+# FlipFlops/Latches                : 26
+#      FDC                         : 9
+#      FDR                         : 16
+#      FDRE                        : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 21
+#      IBUF                        : 1
+#      OBUF                        : 20
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                       29  out of   4656     0%  
+ Number of Slice Flip Flops:             26  out of   9312     0%  
+ Number of 4 input LUTs:                 55  out of   9312     0%  
+ Number of IOs:                          22
+ Number of bonded IOBs:                  22  out of    232     9%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clock50                            | BUFGP                  | 17    |
+theClock/newclock_0                | NONE(myCounter/q_0)    | 9     |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 9     |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 5.431ns (Maximum Frequency: 184.135MHz)
+   Minimum input arrival time before clock: 4.337ns
+   Maximum output required time after clock: 8.856ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clock50'
+  Clock period: 5.431ns (frequency: 184.135MHz)
+  Total number of paths / destination ports: 409 / 34
+-------------------------------------------------------------------------
+Delay:               5.431ns (Levels of Logic = 3)
+  Source:            theClock/counter_14 (FF)
+  Destination:       theClock/counter_0 (FF)
+  Source Clock:      clock50 rising
+  Destination Clock: clock50 rising
+
+  Data Path: theClock/counter_14 to theClock/counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.514   0.532  theClock/counter_14 (theClock/counter_14)
+     LUT4:I0->O            1   0.612   0.426  theClock/newclock_cmp_eq000017 (theClock/newclock_cmp_eq000017)
+     LUT4:I1->O            2   0.612   0.449  theClock/newclock_cmp_eq000064 (theClock/newclock_cmp_eq0000)
+     LUT2:I1->O           16   0.612   0.879  theClock/counter_or00001 (theClock/counter_or0000)
+     FDR:R                     0.795          theClock/counter_0
+    ----------------------------------------
+    Total                      5.431ns (3.145ns logic, 2.286ns route)
+                                       (57.9% logic, 42.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'theClock/newclock_0'
+  Clock period: 3.751ns (frequency: 266.592MHz)
+  Total number of paths / destination ports: 45 / 9
+-------------------------------------------------------------------------
+Delay:               3.751ns (Levels of Logic = 9)
+  Source:            myCounter/q_1 (FF)
+  Destination:       myCounter/q_8 (FF)
+  Source Clock:      theClock/newclock_0 rising
+  Destination Clock: theClock/newclock_0 rising
+
+  Data Path: myCounter/q_1 to myCounter/q_8
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             11   0.514   0.945  myCounter/q_1 (myCounter/q_1)
+     LUT1:I0->O            1   0.612   0.000  myCounter/Mcount_q_cy<1>_rt (myCounter/Mcount_q_cy<1>_rt)
+     MUXCY:S->O            1   0.404   0.000  myCounter/Mcount_q_cy<1> (myCounter/Mcount_q_cy<1>)
+     MUXCY:CI->O           1   0.051   0.000  myCounter/Mcount_q_cy<2> (myCounter/Mcount_q_cy<2>)
+     MUXCY:CI->O           1   0.051   0.000  myCounter/Mcount_q_cy<3> (myCounter/Mcount_q_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  myCounter/Mcount_q_cy<4> (myCounter/Mcount_q_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  myCounter/Mcount_q_cy<5> (myCounter/Mcount_q_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  myCounter/Mcount_q_cy<6> (myCounter/Mcount_q_cy<6>)
+     MUXCY:CI->O           0   0.051   0.000  myCounter/Mcount_q_cy<7> (myCounter/Mcount_q_cy<7>)
+     XORCY:CI->O           1   0.699   0.000  myCounter/Mcount_q_xor<8> (Result<8>)
+     FDC:D                     0.268          myCounter/q_8
+    ----------------------------------------
+    Total                      3.751ns (2.806ns logic, 0.945ns route)
+                                       (74.8% logic, 25.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clock50'
+  Total number of paths / destination ports: 17 / 17
+-------------------------------------------------------------------------
+Offset:              4.337ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       theClock/counter_0 (FF)
+  Destination Clock: clock50 rising
+
+  Data Path: reset to theClock/counter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            11   1.106   0.945  reset_IBUF (reset_IBUF)
+     LUT2:I0->O           16   0.612   0.879  theClock/counter_or00001 (theClock/counter_or0000)
+     FDR:R                     0.795          theClock/counter_0
+    ----------------------------------------
+    Total                      4.337ns (2.513ns logic, 1.824ns route)
+                                       (57.9% logic, 42.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clock50'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.476ns (Levels of Logic = 1)
+  Source:            theClock/newclock_0 (FF)
+  Destination:       clk (PAD)
+  Source Clock:      clock50 rising
+
+  Data Path: theClock/newclock_0 to clk
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            11   0.514   0.793  theClock/newclock_0 (theClock/newclock_0)
+     OBUF:I->O                 3.169          clk_OBUF (clk)
+    ----------------------------------------
+    Total                      4.476ns (3.683ns logic, 0.793ns route)
+                                       (82.3% logic, 17.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'theClock/newclock_0'
+  Total number of paths / destination ports: 102 / 19
+-------------------------------------------------------------------------
+Offset:              8.856ns (Levels of Logic = 6)
+  Source:            myCounter/q_2 (FF)
+  Destination:       sum_1<3> (PAD)
+  Source Clock:      theClock/newclock_0 rising
+
+  Data Path: myCounter/q_2 to sum_1<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              8   0.514   0.795  myCounter/q_2 (myCounter/q_2)
+     LUT2:I0->O            3   0.612   0.481  lookaheadAdder/HA3/Madd_s_lut<0>1 (lookaheadAdder/HA3/Madd_s_lut<0>)
+     LUT4:I2->O            1   0.612   0.000  lookaheadAdder/Cout_and0003111 (lookaheadAdder/Cout_and000311)
+     MUXF5:I1->O           1   0.278   0.426  lookaheadAdder/Cout_and000311_f5 (lookaheadAdder/c3_and0001)
+     LUT4:I1->O            1   0.612   0.387  lookaheadAdder/Madd_c3_Madd_xor<0>11 (lookaheadAdder/c3)
+     LUT3:I2->O            1   0.612   0.357  lookaheadAdder/Mxor_sum<3>_Result1 (sum_1_3_OBUF)
+     OBUF:I->O                 3.169          sum_1_3_OBUF (sum_1<3>)
+    ----------------------------------------
+    Total                      8.856ns (6.409ns logic, 2.447ns route)
+                                       (72.4% logic, 27.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.85 secs
+ 
+--> 
+
+Total memory usage is 252164 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

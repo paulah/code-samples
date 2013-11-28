@@ -1,0 +1,162 @@
+--------------------------------------------------------------------------------
+Release 14.5 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.5\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 5
+-n 3 -fastpaths -xml product_top.twx product_top.ncd -o product_top.twr
+product_top.pcf -ucf VendingMachine_top2.ucf
+
+Design file:              product_top.ncd
+Physical constraint file: product_top.pcf
+Device,package,speed:     xc3s500e,fg320,-5 (PRODUCTION 1.27 2013-03-26)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clk
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+reset       |    5.463(R)|    0.191(R)|clk_BUFGP         |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock clk to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+a           |   12.102(R)|clk_BUFGP         |   0.000|
+b           |   10.900(R)|clk_BUFGP         |   0.000|
+c           |   11.780(R)|clk_BUFGP         |   0.000|
+d           |   11.263(R)|clk_BUFGP         |   0.000|
+e           |   11.207(R)|clk_BUFGP         |   0.000|
+f           |   11.783(R)|clk_BUFGP         |   0.000|
+g           |   11.386(R)|clk_BUFGP         |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    4.106|         |         |         |
+switches<0>    |         |    4.108|         |         |
+switches<1>    |         |    4.108|         |         |
+switches<2>    |         |    4.108|         |         |
+switches<3>    |         |    4.108|         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock coins<0>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+coins<0>       |         |         |    0.121|    0.121|
+coins<1>       |         |         |    0.469|    0.469|
+coins<2>       |         |         |    0.661|    0.661|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock coins<1>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+coins<0>       |         |         |   -0.159|   -0.159|
+coins<1>       |         |         |    0.189|    0.189|
+coins<2>       |         |         |    0.381|    0.381|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock coins<2>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+coins<0>       |         |         |   -0.285|   -0.285|
+coins<1>       |         |         |    0.063|    0.063|
+coins<2>       |         |         |    0.255|    0.255|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock switches<0>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+switches<0>    |         |         |    1.266|    1.266|
+switches<1>    |         |         |    0.539|    0.539|
+switches<2>    |         |         |    0.002|    0.002|
+switches<3>    |         |         |   -0.165|   -0.165|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock switches<1>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+switches<0>    |         |         |    1.262|    1.262|
+switches<1>    |         |         |    0.535|    0.535|
+switches<2>    |         |         |   -0.002|   -0.002|
+switches<3>    |         |         |   -0.169|   -0.169|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock switches<2>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+switches<0>    |         |         |    1.517|    1.517|
+switches<1>    |         |         |    0.790|    0.790|
+switches<2>    |         |         |    0.253|    0.253|
+switches<3>    |         |         |    0.086|    0.086|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock switches<3>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+switches<0>    |         |         |    1.985|    1.985|
+switches<1>    |         |         |    1.258|    1.258|
+switches<2>    |         |         |    0.721|    0.721|
+switches<3>    |         |         |    0.554|    0.554|
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Mon Nov 18 17:34:25 2013 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 165 MB
+
+
+

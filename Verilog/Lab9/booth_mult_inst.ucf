@@ -1,0 +1,24 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "A[3]" LOC = R17;
+NET "A[2]" LOC = N17;
+NET "A[1]" LOC = L13;
+NET "A[0]" LOC = L14;
+NET "anode_sig[3]" LOC = F15;
+NET "anode_sig[2]" LOC = C18;
+NET "anode_sig[1]" LOC = H17;
+NET "anode_sig[0]" LOC = F17;
+NET "B[3]" LOC = K17;
+NET "B[2]" LOC = K18;
+NET "B[1]" LOC = H18;
+NET "B[0]" LOC = G18;
+NET "a" LOC = L18;
+NET "b" LOC = F18;
+NET "c" LOC = D17;
+NET "clr" LOC = H13;
+NET "d" LOC = D16;
+NET "e" LOC = G14;
+NET "f" LOC = J17;
+NET "g" LOC = H14;
+NET "clk" LOC = B8;

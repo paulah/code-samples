@@ -1,0 +1,5 @@
+MODULE fulladder
+	SUBMODULE halfadder
+		INSTANCE XLXI_2
+	SUBMODULE halfadder
+		INSTANCE XLXI_3

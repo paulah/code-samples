@@ -1,0 +1,602 @@
+Release 14.5 - xst P.58f (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Reading design: combinational_mult_inst.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "combinational_mult_inst.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "combinational_mult_inst"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : combinational_mult_inst
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "full_adder.v" in library work
+Compiling verilog file "combinational_array_block.v" in library work
+Module <full_adder> compiled
+Compiling verilog file "Multiplexer.v" in library work
+Module <combinational_array_block> compiled
+Compiling verilog file "hex_to_7_seg_1.v" in library work
+Module <Multiplexer> compiled
+Compiling verilog file "counter.v" in library work
+Module <hex_to_7_seg_1> compiled
+Compiling verilog file "combinational_array_mult.v" in library work
+Module <counter> compiled
+Compiling verilog file "Anode_Driver.v" in library work
+Module <combinational_array_mult> compiled
+Compiling verilog file "combinational_mult_inst.v" in library work
+Module <Anode_Driver> compiled
+Module <combinational_mult_inst> compiled
+No errors in compilation
+Analysis of file <"combinational_mult_inst.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <combinational_mult_inst> in library <work>.
+
+Analyzing hierarchy for module <counter> in library <work> with parameters.
+	N = "00000000000000000000000000001111"
+
+Analyzing hierarchy for module <Anode_Driver> in library <work>.
+
+Analyzing hierarchy for module <Multiplexer> in library <work>.
+
+Analyzing hierarchy for module <combinational_array_mult> in library <work>.
+
+Analyzing hierarchy for module <hex_to_7_seg_1> in library <work>.
+
+Analyzing hierarchy for module <combinational_array_block> in library <work>.
+
+Analyzing hierarchy for module <full_adder> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <combinational_mult_inst>.
+WARNING:Xst:863 - "combinational_mult_inst.v" line 33: Name conflict (<s1> and <S1>, renaming s1 as s1_rnm0).
+WARNING:Xst:863 - "combinational_mult_inst.v" line 34: Name conflict (<s2> and <S2>, renaming s2 as s2_rnm0).
+WARNING:Xst:863 - "combinational_mult_inst.v" line 35: Name conflict (<s3> and <S3>, renaming s3 as s3_rnm0).
+WARNING:Xst:863 - "combinational_mult_inst.v" line 36: Name conflict (<s4> and <S4>, renaming s4 as s4_rnm0).
+Module <combinational_mult_inst> is correct for synthesis.
+ 
+Analyzing module <counter> in library <work>.
+	N = 32'sb00000000000000000000000000001111
+Module <counter> is correct for synthesis.
+ 
+Analyzing module <Anode_Driver> in library <work>.
+Module <Anode_Driver> is correct for synthesis.
+ 
+Analyzing module <Multiplexer> in library <work>.
+Module <Multiplexer> is correct for synthesis.
+ 
+Analyzing module <combinational_array_mult> in library <work>.
+WARNING:Xst:863 - "combinational_array_mult.v" line 31: Name conflict (<s1> and <S1>, renaming s1 as s1_rnm0).
+WARNING:Xst:863 - "combinational_array_mult.v" line 32: Name conflict (<s2> and <S2>, renaming s2 as s2_rnm0).
+WARNING:Xst:863 - "combinational_array_mult.v" line 33: Name conflict (<s3> and <S3>, renaming s3 as s3_rnm0).
+WARNING:Xst:863 - "combinational_array_mult.v" line 34: Name conflict (<s4> and <S4>, renaming s4 as s4_rnm0).
+WARNING:Xst:863 - "combinational_array_mult.v" line 35: Name conflict (<s5> and <S5>, renaming s5 as s5_rnm0).
+WARNING:Xst:863 - "combinational_array_mult.v" line 36: Name conflict (<s6> and <S6>, renaming s6 as s6_rnm0).
+WARNING:Xst:863 - "combinational_array_mult.v" line 37: Name conflict (<s7> and <S7>, renaming s7 as s7_rnm0).
+Module <combinational_array_mult> is correct for synthesis.
+ 
+Analyzing module <combinational_array_block> in library <work>.
+Module <combinational_array_block> is correct for synthesis.
+ 
+Analyzing module <full_adder> in library <work>.
+Module <full_adder> is correct for synthesis.
+ 
+Analyzing module <hex_to_7_seg_1> in library <work>.
+Module <hex_to_7_seg_1> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <counter>.
+    Related source file is "counter.v".
+    Found 15-bit up counter for signal <slowclk>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <counter> synthesized.
+
+
+Synthesizing Unit <Anode_Driver>.
+    Related source file is "Anode_Driver.v".
+    Found 2-bit up counter for signal <mux_selection_signal>.
+    Found 4-bit register for signal <anode_selection_signal>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   4 D-type flip-flop(s).
+Unit <Anode_Driver> synthesized.
+
+
+Synthesizing Unit <Multiplexer>.
+    Related source file is "Multiplexer.v".
+    Found 4-bit 4-to-1 multiplexer for signal <Y>.
+    Summary:
+	inferred   4 Multiplexer(s).
+Unit <Multiplexer> synthesized.
+
+
+Synthesizing Unit <hex_to_7_seg_1>.
+    Related source file is "hex_to_7_seg_1.v".
+    Found 16x3-bit ROM for signal <x$rom0000>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <hex_to_7_seg_1> synthesized.
+
+
+Synthesizing Unit <full_adder>.
+    Related source file is "full_adder.v".
+    Found 1-bit xor3 for signal <sum>.
+    Summary:
+	inferred   1 Xor(s).
+Unit <full_adder> synthesized.
+
+
+Synthesizing Unit <combinational_array_block>.
+    Related source file is "combinational_array_block.v".
+Unit <combinational_array_block> synthesized.
+
+
+Synthesizing Unit <combinational_array_mult>.
+    Related source file is "combinational_array_mult.v".
+WARNING:Xst:1780 - Signal <s9> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <s5_rnm0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <s1_rnm0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+Unit <combinational_array_mult> synthesized.
+
+
+Synthesizing Unit <combinational_mult_inst>.
+    Related source file is "combinational_mult_inst.v".
+WARNING:Xst:1780 - Signal <s4_rnm0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <s3_rnm0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <s2_rnm0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <s1_rnm0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <cout> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+Unit <combinational_mult_inst> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 16x3-bit ROM                                          : 1
+# Counters                                             : 2
+ 15-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
+# Registers                                            : 1
+ 4-bit register                                        : 1
+# Multiplexers                                         : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Xors                                                 : 16
+ 1-bit xor3                                            : 16
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 16x3-bit ROM                                          : 1
+# Counters                                             : 2
+ 15-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
+# Registers                                            : 4
+ Flip-Flops                                            : 4
+# Multiplexers                                         : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Xors                                                 : 16
+ 1-bit xor3                                            : 16
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <combinational_mult_inst> ...
+
+Optimizing unit <Anode_Driver> ...
+
+Optimizing unit <combinational_array_mult> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block combinational_mult_inst, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 21
+ Flip-Flops                                            : 21
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : combinational_mult_inst.ngr
+Top Level Output File Name         : combinational_mult_inst
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 44
+
+Cell Usage :
+# BELS                             : 97
+#      GND                         : 1
+#      INV                         : 2
+#      LUT1                        : 14
+#      LUT2                        : 10
+#      LUT3                        : 6
+#      LUT4                        : 30
+#      MUXCY                       : 14
+#      MUXF5                       : 4
+#      VCC                         : 1
+#      XORCY                       : 15
+# FlipFlops/Latches                : 21
+#      FDR                         : 18
+#      FDS                         : 3
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 43
+#      IBUF                        : 9
+#      OBUF                        : 34
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                       34  out of   4656     0%  
+ Number of Slice Flip Flops:             21  out of   9312     0%  
+ Number of 4 input LUTs:                 62  out of   9312     0%  
+ Number of IOs:                          44
+ Number of bonded IOBs:                  44  out of    232    18%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-----------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)             | Load  |
+-----------------------------------+-----------------------------------+-------+
+clk                                | BUFGP                             | 15    |
+count/slowclk_14                   | NONE(anode/mux_selection_signal_1)| 6     |
+-----------------------------------+-----------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 3.708ns (Maximum Frequency: 269.709MHz)
+   Minimum input arrival time before clock: 2.860ns
+   Maximum output required time after clock: 15.751ns
+   Maximum combinational path delay: 7.314ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.708ns (frequency: 269.709MHz)
+  Total number of paths / destination ports: 120 / 15
+-------------------------------------------------------------------------
+Delay:               3.708ns (Levels of Logic = 9)
+  Source:            count/slowclk_7 (FF)
+  Destination:       count/slowclk_14 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: count/slowclk_7 to count/slowclk_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             10   0.514   0.902  count/slowclk_7 (count/slowclk_7)
+     LUT1:I0->O            1   0.612   0.000  count/Mcount_slowclk_cy<7>_rt (count/Mcount_slowclk_cy<7>_rt)
+     MUXCY:S->O            1   0.404   0.000  count/Mcount_slowclk_cy<7> (count/Mcount_slowclk_cy<7>)
+     MUXCY:CI->O           1   0.051   0.000  count/Mcount_slowclk_cy<8> (count/Mcount_slowclk_cy<8>)
+     MUXCY:CI->O           1   0.051   0.000  count/Mcount_slowclk_cy<9> (count/Mcount_slowclk_cy<9>)
+     MUXCY:CI->O           1   0.051   0.000  count/Mcount_slowclk_cy<10> (count/Mcount_slowclk_cy<10>)
+     MUXCY:CI->O           1   0.051   0.000  count/Mcount_slowclk_cy<11> (count/Mcount_slowclk_cy<11>)
+     MUXCY:CI->O           1   0.051   0.000  count/Mcount_slowclk_cy<12> (count/Mcount_slowclk_cy<12>)
+     MUXCY:CI->O           0   0.051   0.000  count/Mcount_slowclk_cy<13> (count/Mcount_slowclk_cy<13>)
+     XORCY:CI->O           1   0.699   0.000  count/Mcount_slowclk_xor<14> (Result<14>)
+     FDR:D                     0.268          count/slowclk_14
+    ----------------------------------------
+    Total                      3.708ns (2.806ns logic, 0.902ns route)
+                                       (75.7% logic, 24.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'count/slowclk_14'
+  Clock period: 2.501ns (frequency: 399.888MHz)
+  Total number of paths / destination ports: 7 / 6
+-------------------------------------------------------------------------
+Delay:               2.501ns (Levels of Logic = 1)
+  Source:            anode/mux_selection_signal_0 (FF)
+  Destination:       anode/mux_selection_signal_0 (FF)
+  Source Clock:      count/slowclk_14 rising
+  Destination Clock: count/slowclk_14 rising
+
+  Data Path: anode/mux_selection_signal_0 to anode/mux_selection_signal_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             10   0.514   0.750  anode/mux_selection_signal_0 (anode/mux_selection_signal_0)
+     INV:I->O              1   0.612   0.357  anode/Mcount_mux_selection_signal_xor<0>11_INV_0 (anode/Result<0>)
+     FDR:D                     0.268          anode/mux_selection_signal_0
+    ----------------------------------------
+    Total                      2.501ns (1.394ns logic, 1.107ns route)
+                                       (55.7% logic, 44.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 15 / 15
+-------------------------------------------------------------------------
+Offset:              2.860ns (Levels of Logic = 1)
+  Source:            clr (PAD)
+  Destination:       count/slowclk_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: clr to count/slowclk_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            21   1.106   0.959  clr_IBUF (clr_IBUF)
+     FDR:R                     0.795          count/slowclk_0
+    ----------------------------------------
+    Total                      2.860ns (1.901ns logic, 0.959ns route)
+                                       (66.5% logic, 33.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'count/slowclk_14'
+  Total number of paths / destination ports: 6 / 6
+-------------------------------------------------------------------------
+Offset:              2.860ns (Levels of Logic = 1)
+  Source:            clr (PAD)
+  Destination:       anode/mux_selection_signal_1 (FF)
+  Destination Clock: count/slowclk_14 rising
+
+  Data Path: clr to anode/mux_selection_signal_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            21   1.106   0.959  clr_IBUF (clr_IBUF)
+     FDR:R                     0.795          anode/mux_selection_signal_0
+    ----------------------------------------
+    Total                      2.860ns (1.901ns logic, 0.959ns route)
+                                       (66.5% logic, 33.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 4175 / 30
+-------------------------------------------------------------------------
+Offset:              15.751ns (Levels of Logic = 12)
+  Source:            count/slowclk_13 (FF)
+  Destination:       d (PAD)
+  Source Clock:      clk rising
+
+  Data Path: count/slowclk_13 to d
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             10   0.514   0.902  count/slowclk_13 (count/slowclk_13)
+     LUT4:I0->O            2   0.612   0.532  combo/G3/f1/Mxor_sum_xo<0>1 (combo/s7_rnm0)
+     LUT4:I0->O            3   0.612   0.481  combo/G5/f1/Mxor_sum_xo<0>1 (combo/s10)
+     LUT4:I2->O            2   0.612   0.532  combo/f1/f1/Mxor_sum_xo<0>1 (combo/s8)
+     LUT4:I0->O            2   0.612   0.383  combo/G6/f1/Mxor_sum_xo<0>1 (combo/s11)
+     LUT4:I3->O            2   0.612   0.449  combo/G8/f1/cout1 (combo/c14)
+     LUT4:I1->O            2   0.612   0.383  combo/f2/f1/Mxor_sum_xo<0>1 (combo/s12)
+     LUT4:I3->O            2   0.612   0.532  combo/G9/f1/cout1 (combo/c15)
+     LUT4:I0->O            2   0.612   0.449  combo/f3/f1/Mxor_sum_xo<0>1 (S6_OBUF)
+     LUT3:I1->O            1   0.612   0.000  mux/Mmux_Y_32 (mux/Mmux_Y_32)
+     MUXF5:I1->O           7   0.278   0.671  mux/Mmux_Y_2_f5_1 (out<2>)
+     LUT4:I1->O            1   0.612   0.357  decod/g_or00001 (g_OBUF)
+     OBUF:I->O                 3.169          g_OBUF (g)
+    ----------------------------------------
+    Total                     15.751ns (10.081ns logic, 5.670ns route)
+                                       (64.0% logic, 36.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'count/slowclk_14'
+  Total number of paths / destination ports: 88 / 11
+-------------------------------------------------------------------------
+Offset:              7.197ns (Levels of Logic = 4)
+  Source:            anode/mux_selection_signal_0 (FF)
+  Destination:       a (PAD)
+  Source Clock:      count/slowclk_14 rising
+
+  Data Path: anode/mux_selection_signal_0 to a
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             10   0.514   0.902  anode/mux_selection_signal_0 (anode/mux_selection_signal_0)
+     LUT3:I0->O            1   0.612   0.000  mux/Mmux_Y_4 (mux/Mmux_Y_4)
+     MUXF5:I0->O           7   0.278   0.754  mux/Mmux_Y_2_f5 (out<0>)
+     LUT4:I0->O            1   0.612   0.357  decod/Mrom_x_rom000011 (d_OBUF)
+     OBUF:I->O                 3.169          d_OBUF (d)
+    ----------------------------------------
+    Total                      7.197ns (5.185ns logic, 2.013ns route)
+                                       (72.0% logic, 28.0% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 56 / 7
+-------------------------------------------------------------------------
+Delay:               7.314ns (Levels of Logic = 5)
+  Source:            A0 (PAD)
+  Destination:       a (PAD)
+
+  Data Path: A0 to a
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.106   0.426  A0_IBUF (A0_IBUF)
+     LUT3:I1->O            1   0.612   0.000  mux/Mmux_Y_4 (mux/Mmux_Y_4)
+     MUXF5:I0->O           7   0.278   0.754  mux/Mmux_Y_2_f5 (out<0>)
+     LUT4:I0->O            1   0.612   0.357  decod/Mrom_x_rom000011 (d_OBUF)
+     OBUF:I->O                 3.169          d_OBUF (d)
+    ----------------------------------------
+    Total                      7.314ns (5.777ns logic, 1.537ns route)
+                                       (79.0% logic, 21.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.76 secs
+ 
+--> 
+
+Total memory usage is 253892 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   27 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

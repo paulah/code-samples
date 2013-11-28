@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Nov 18 15:54:08 2013
+# Process ID: 5812
+# Log file: F:/Lab10/planAhead_run_2/planAhead.log
+# Journal file: F:/Lab10/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source F:/Lab10/pa.fromNetlist.tcl
+startgroup
+set_property package_pin G18 [get_ports reset]
+endgroup
+save_constraints
