@@ -1,0 +1,58 @@
+% 
+% mkfs
+
+% mkdir animals
+
+% cd animals
+
+% touch hippo
+
+% touch rabbit
+
+% ls
+hippo
+rabbit
+
+% % % mkdir wild
+
+% cd wild
+
+% mkdir bear
+
+% mkdir lion
+
+% mkdir tiger
+
+% ls .
+bear/
+lion/
+tiger/
+
+% % cd ..
+
+% cd ..
+
+% % mkdir plants
+
+% cd plants
+
+% touch flowers
+
+% touch roses
+
+% ls .
+flowers
+roses
+
+% % cd /
+
+% ls animals
+hippo
+rabbit
+wild/
+
+% ls plants
+flowers
+roses
+
+% 

@@ -1,0 +1,25 @@
+% 
+% mkfs
+
+% mkdir animals
+
+% cd animals
+
+% touch lion
+
+% addline lion
+
+% addline lion
+
+% cat lion
+A lion has a mane.
+A lion is a cat.
+
+% addline lion
+
+% cat lion
+A lion has a mane.
+A lion is a cat.
+A lion is a wild animal.
+
+% 

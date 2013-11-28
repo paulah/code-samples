@@ -1,0 +1,2 @@
+prog1.yo: prog1.ys
+	yas prog1.ys

@@ -1,0 +1,28 @@
+set verbose
+mkfs
+mkdir animals
+cd animals
+touch hippo
+touch rabbit
+ls
+
+
+mkdir wild
+cd wild
+mkdir bear
+mkdir lion
+mkdir tiger
+ls .
+
+cd ..
+cd ..
+
+mkdir plants
+cd plants
+touch flowers
+touch roses
+ls .
+
+cd /
+ls animals
+ls plants

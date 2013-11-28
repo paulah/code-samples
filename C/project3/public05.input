@@ -1,0 +1,32 @@
+set verbose
+mkfs
+mkdir animals
+mkdir plants
+cd plants
+pwd
+cd /
+cd animals
+mkdir vertebrates
+mkdir invertebrates
+cd vertebrates
+mkdir mammals
+mkdir birds
+mkdir fish
+mkdir reptiles
+mkdir amphibians
+pwd
+cd mammals
+pwd
+cd ..
+cd birds
+pwd
+mkdir pets
+cd pets
+pwd
+cd /
+cd animals
+cd invertebrates
+mkdir spiders
+mkdir insects
+cd insects
+pwd

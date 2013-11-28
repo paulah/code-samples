@@ -1,0 +1,91 @@
+                      | # Paula Huang
+                      | # 112419189
+                      | # phuang
+  0x000: 308400100000 | 	irmovl	$0x1000, %esp
+  0x006: 308000000000 | 	irmovl	$0, %eax	# %eax: num = 0
+  0x00c: f238         | 	rdint	%ebx		# %ebx: n
+  0x00e: 308700000000 | While:	irmovl	$0, %edi	# while n!=0 && num < 100
+  0x014: 6073         | 	addl	%edi, %ebx
+  0x016: 7345000000   | 	je	Endwhile
+  0x01b: 308764000000 | 	irmovl	$100, %edi
+  0x021: 6107         | 	subl	%eax, %edi
+  0x023: 7145000000   | 	jle	Endwhile
+  0x028: 308704000000 | 	irmovl	$4, %edi	# arr[num] = n
+  0x02e: 6407         | 	multl	%eax, %edi
+  0x030: 403720030000 | 	rmmovl	%ebx, arr(%edi)
+  0x036: 308701000000 | 	irmovl	$1, %edi
+  0x03c: 6070         | 	addl	%edi, %eax	# num++
+  0x03e: f238         | 	rdint	%ebx
+  0x040: 700e000000   | 	jmp	While
+  0x045:              | Endwhile: 
+  0x045: a068         | 	pushl	%esi #mid
+  0x047: f218         | 	rdint	%ecx		# %ecx: x
+  0x049: a018         | 	pushl	%ecx
+  0x04b: 308200000000 | 	irmovl	$0, %edx
+  0x051: a028         | 	pushl	%edx
+  0x053: 308701000000 | 	irmovl	$1, %edi
+  0x059: 6170         | 	subl	%edi, %eax
+  0x05b: a008         | 	pushl	%eax
+  0x05d: 3087ffffffff | 	irmovl	$-1, %edi
+  0x063: 8073000000   | 	call	f
+  0x068: f378         | 	wrint	%edi
+  0x06a: 30860a000000 | 	irmovl	$10, %esi
+  0x070: f168         | 	wrch	%esi
+  0x072: 10           | 	halt
+  0x073: a058         | f:    	pushl	 %ebp	      	# save old frame
+  0x075: 2045         | 	rrmovl	 %esp, %ebp   	# set new frame
+  0x077: 501508000000 | 	mrmovl	 8(%ebp), %ecx	# load param high
+  0x07d: 50250c000000 | 	mrmovl	 12(%ebp), %edx # load param low
+  0x083: 2026         | 	rrmovl	 %edx, %esi	# copy low
+  0x085: 6116         | 	subl	 %ecx, %esi
+  0x087: 7197000000   | 	jle	 Endif
+  0x08c: 3087ffffffff | 	irmovl	 $-1, %edi
+  0x092: 7042010000   | 	jmp End
+  0x097: 2026         | Endif:	rrmovl	 %edx, %esi	# copy low
+  0x099: 6016         | 	addl	 %ecx, %esi	# low+high
+  0x09b: 308302000000 | 	irmovl	 $2, %ebx
+  0x0a1: 6536         | 	divl	 %ebx, %esi	# %esi: mid = (low+high) / 2
+  0x0a3: 406514000000 | 	rmmovl	 %esi, 20(%ebp) #mid!
+  0x0a9: 500510000000 | 	mrmovl	 16(%ebp), %eax # %eax: n
+  0x0af: 308304000000 | 	irmovl	 $4, %ebx	# if (n== arr[mid])
+  0x0b5: 6463         | 	multl	 %esi, %ebx
+  0x0b7: 503320030000 | 	mrmovl	 arr(%ebx), %ebx # %ebx: arr[mid]
+  0x0bd: 2031         | 	rrmovl	 %ebx, %ecx 	# copy arr[mid]
+  0x0bf: 6101         | 	subl	 %eax, %ecx
+  0x0c1: 74cd000000   | 	jne	 Elseif
+  0x0c6: 2067         | 	rrmovl	 %esi, %edi
+  0x0c8: 7042010000   | 	jmp End
+  0x0cd: 506514000000 | Elseif:	mrmovl	20(%ebp), %esi #load mid
+  0x0d3: 500510000000 | 	mrmovl	16(%ebp), %eax # %eax: n
+  0x0d9: 308304000000 | 	irmovl	 $4, %ebx	# if (n < arr[mid])
+  0x0df: 6463         | 	multl	 %esi, %ebx
+  0x0e1: 503320030000 | 	mrmovl	 arr(%ebx), %ebx # %ebx: arr[mid]
+  0x0e7: 2031         | 	rrmovl	 %ebx, %ecx 	# copy arr[mid]
+  0x0e9: 6101         | 	subl	 %eax, %ecx
+  0x0eb: 7116010000   | 	jle	 Else
+  0x0f0: a068         | 	pushl	 %esi
+  0x0f2: a008         | 	pushl	 %eax
+  0x0f4: 50250c000000 | 	mrmovl	 12(%ebp), %edx # load param low
+  0x0fa: a028         | 	pushl	 %edx
+  0x0fc: 308301000000 | 	irmovl	 $1, %ebx
+  0x102: 506514000000 | 	mrmovl	20(%ebp), %esi #load mid
+  0x108: 6136         | 	subl	%ebx, %esi
+  0x10a: a068         | 	pushl	%esi
+  0x10c: 8073000000   | 	call	f
+  0x111: 7042010000   | 	jmp End
+  0x116: 506514000000 | Else:	mrmovl	20(%ebp), %esi
+  0x11c: a068         | 	pushl	 %esi
+  0x11e: 500510000000 | 	mrmovl	16(%ebp), %eax # %eax: n
+  0x124: a008         | 	pushl	 %eax
+  0x126: 308301000000 | 	irmovl	 $1, %ebx
+  0x12c: 6063         | 	addl	 %esi, %ebx
+  0x12e: a038         | 	pushl	 %ebx
+  0x130: 502508000000 | 	mrmovl	 8(%ebp), %edx # load param high
+  0x136: a028         | 	pushl	 %edx
+  0x138: 8073000000   | 	call	f
+  0x13d: 7042010000   | 	jmp End
+  0x142: 2054         | End:	rrmovl	 %ebp, %esp
+  0x144: b058         | 	popl	 %ebp
+  0x146: 90           | 	ret
+  0x320:              | 	.pos	800
+  0x320:              | arr:

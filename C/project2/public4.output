@@ -1,0 +1,4 @@
+rmmovl %edx, 13107(%ebx)
+rmmovl %edx, 04403(%ebx)
+mrmovl 17476(%ecx), %esp
+mrmovl 04420(%ecx), %esp

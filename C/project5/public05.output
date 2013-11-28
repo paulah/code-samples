@@ -1,0 +1,5 @@
+main.x: main.o functions.o
+	gcc main.o functions.o -o main.x
+
+
+Looks like your code does not have any memory leaks.

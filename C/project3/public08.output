@@ -1,0 +1,63 @@
+% 
+% mkfs
+
+% mkdir animals
+
+% mkdir plants
+
+% cd animals
+
+% cd nonexistent-dir
+Missing, incorrect, or invalid operand.
+
+% mkdir vertebrates
+
+% cd animals
+Missing, incorrect, or invalid operand.
+
+% mkdir invertebrates
+
+% cd vertebrates
+
+% mkdir mammals
+
+% mkdir birds
+
+% mkdir fish
+
+% mkdir reptiles
+
+% mkdir amphibians
+
+% cd mammals
+
+% touch lion
+
+% cd lion
+Missing, incorrect, or invalid operand.
+
+% cd ..
+
+% cd birds
+
+% mkdir pets
+
+% cd /
+
+% cd animals
+
+% cd invertebrates
+
+% cd mammals
+Missing, incorrect, or invalid operand.
+
+% mkdir spiders
+
+% mkdir insects
+
+% cd /
+
+% cd this/should/not/work
+Missing, incorrect, or invalid operand.
+
+% 

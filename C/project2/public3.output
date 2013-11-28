@@ -1,0 +1,3 @@
+irmovl $65535, %ebp
+irmovl $00216, %ebp
+iaddl $39030, %edx

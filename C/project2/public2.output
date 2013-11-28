@@ -1,0 +1,8 @@
+pushl %edx
+popl %ebx
+rdch %edx
+wrch %ecx
+addl %ebx, %ecx
+subl %eax, %edx
+andl %edx, %ebx
+xorl %ebx, %edx

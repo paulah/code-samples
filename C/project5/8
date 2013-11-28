@@ -1,0 +1,5 @@
+file:
+echo I should print this because dependency is newer
+I should print this because dependency is newer
+
+Return value of make_target(): 0

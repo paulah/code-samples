@@ -1,0 +1,17 @@
+# This is a fakefile that will create a main.x program
+
+# The program will add 0 and 1 and should print 1
+main.x: main.o functions.o
+	gcc main.o functions.o -o main.x
+
+# functions has the add function
+functions.o: functions.c functions.h
+	gcc -c functions.c
+
+# main function
+main.o: main.c functions.h
+	gcc -c main.c
+
+# clean object files
+clean:
+	rm -f main.o functions.o main.x

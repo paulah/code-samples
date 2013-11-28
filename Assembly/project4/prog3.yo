@@ -1,0 +1,82 @@
+                      | #Paula Huang
+                      | #112419189
+                      | #phuang
+  0x000: 3083ffffffff | 	irmovl	$-1, %ebx	# found = -1
+  0x006: 308000000000 | 	irmovl	$0, %eax	# i = 0
+  0x00c: f028         | Do:	rdch  	%edx
+  0x00e: 308704000000 | 	irmovl	$4, %edi
+  0x014: 6407         | 	multl	%eax, %edi
+  0x016: 402790010000 | 	rmmovl	%edx, arr(%edi)
+  0x01c: 308701000000 | 	irmovl	$1, %edi
+  0x022: 6070         | 	addl	%edi, %eax
+  0x024: 30870a000000 | 	irmovl	$10, %edi
+  0x02a: 6127         | 	subl	%edx, %edi
+  0x02c: 740c000000   | 	jne	Do
+  0x031: 308701000000 | 	irmovl	$1, %edi
+  0x037: 6170         | 	subl	%edi, %eax
+  0x039: 308704000000 | 	irmovl	$4, %edi
+  0x03f: 6407         | 	multl	%eax, %edi
+  0x041: 308400000000 | 	irmovl	$0, %esp
+  0x047: 404790010000 | 	rmmovl	%esp, arr(%edi)
+  0x04d: 308000000000 | 	irmovl	$0, %eax	# i = 0
+  0x053: f028         | Do2:	rdch  	%edx
+  0x055: 308704000000 | 	irmovl	$4, %edi
+  0x05b: 6407         | 	multl	%eax, %edi
+  0x05d: 402724030000 | 	rmmovl	%edx, arr2(%edi)
+  0x063: 308701000000 | 	irmovl	$1, %edi
+  0x069: 6070         | 	addl	%edi, %eax
+  0x06b: 30870a000000 | 	irmovl	$10, %edi
+  0x071: 6127         | 	subl	%edx, %edi
+  0x073: 7453000000   | 	jne	Do2
+  0x078: 308701000000 | 	irmovl	$1, %edi
+  0x07e: 6170         | 	subl	%edi, %eax
+  0x080: 308704000000 | 	irmovl	$4, %edi
+  0x086: 6407         | 	multl	%eax, %edi
+  0x088: 308400000000 | 	irmovl	$0, %esp
+  0x08e: 404724030000 | 	rmmovl	%esp, arr2(%edi)
+  0x094: 308000000000 | 	irmovl	$0, %eax	# i=0
+  0x09a: 308404000000 | While:	irmovl	$4, %esp	# while s[i] != '\0' && found == -1
+  0x0a0: 6404         | 	multl	%eax, %esp
+  0x0a2: 502490010000 | 	mrmovl	arr(%esp), %edx	#edx gets s[i]
+  0x0a8: 308700000000 | 	irmovl	$0, %edi
+  0x0ae: 6072         | 	addl	%edi, %edx
+  0x0b0: 7337010000   | 	je	Endwhile
+  0x0b5: 3087ffffffff | 	irmovl	$-1, %edi		
+  0x0bb: 6137         | 	subl	%ebx, %edi
+  0x0bd: 7437010000   | 	jne	Endwhile
+  0x0c2: 308100000000 | 	irmovl	$0, %ecx	# %ecx: j = 0
+  0x0c8: 2007         | While2: rrmovl	%eax, %edi	# copy i
+  0x0ca: 6017         | 	addl	%ecx, %edi	# i+j
+  0x0cc: 308604000000 | 	irmovl	$4, %esi	#
+  0x0d2: 6476         | 	multl	%edi, %esi	# 4(i+j)
+  0x0d4: 504690010000 | 	mrmovl	arr(%esi), %esp # %esp: s[i+j]
+  0x0da: 308500000000 | 	irmovl	$0, %ebp
+  0x0e0: 6145         | 	subl	%esp, %ebp
+  0x0e2: 7316010000   | 	je	Endwhile2
+                      | 				# if
+  0x0e7: 308604000000 | 	irmovl	$4, %esi
+  0x0ed: 6416         | 	multl	%ecx, %esi
+  0x0ef: 505624030000 | 	mrmovl	arr2(%esi), %ebp # %ebp: t[j]
+  0x0f5: 308700000000 | 	irmovl	$0, %edi
+  0x0fb: 6157         | 	subl	%ebp, %edi
+  0x0fd: 7316010000   | 	je	Endwhile2
+  0x102: 6154         | 	subl	%ebp, %esp
+  0x104: 7416010000   | 	jne	Endwhile2
+  0x109: 308401000000 | 	irmovl	$1, %esp
+  0x10f: 6041         | 	addl	%esp, %ecx	# j++
+  0x111: 70c8000000   | 	jmp	While2	
+  0x116: 308400000000 | Endwhile2: irmovl $0, %esp	# if t[j] == '\0'
+  0x11c: 6045         | 	addl	%esp, %ebp
+  0x11e: 742a010000   | 	jne	Else
+  0x123: 2003         | 	rrmovl	%eax, %ebx
+  0x125: 7032010000   | 	jmp	Endif
+  0x12a: 308401000000 | Else:	irmovl	$1, %esp
+  0x130: 6040         | 	addl	%esp, %eax	#else i++ 
+  0x132: 709a000000   | Endif:	jmp	While
+  0x137: f338         | Endwhile: wrint	%ebx
+  0x139: 30840a000000 | 	irmovl	$10, %esp
+  0x13f: f148         | 	wrch	%esp
+  0x141: 10           | 	halt
+  0x190:              | 	.pos	400
+  0x324:              | arr:	.pos	804
+  0x324:              | arr2:

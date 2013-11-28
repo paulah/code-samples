@@ -1,0 +1,453 @@
+/* Paula Huang
+ * TerpConnect: phuang
+ * UID: 112419189
+ * CMSC216 Section 0202
+ *
+ * I pledge on my honor that I have neither given nor
+ * received any unauthorized assistance on this assignment.
+ */
+
+/* fakefile.c simulates the execution of the make utility. Makefiles contain
+a target, dependency list, action, and may have comment lines or blank lines.
+Some notable differences from the execution of make include the restriction
+that there will always be exactly one action line and that files should
+be syntactically correct for fakefile to function properly. */
+
+#include "fakefile.h"
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <errno.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "split.h"
+#include <sys/wait.h>
+
+/* same as 0666 */
+#define DEF_MODE (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH)
+
+/* some prototypes */
+static int exists(const char *filename);
+static int is_newer(String file1, String file2);
+static Dependency *create_dependency(String dependency_name);
+static Node *create_node(char **list, char **command);
+static Dependency *create_dep_list(Node *n, char **list);
+static Command *create_command(String command_name);
+static Command *create_cmd_list(Node *n, char **list);
+static void free_node(Node *n);
+static int execute_command(char *arglist[]);
+static int target_exists(Fakefile *file, const char *str);
+static Node *find_target(Fakefile *file, const char *str);
+static int target_older_than_dep (Fakefile *f, const char *target);
+static void print_cmd(Node *n);
+static char **cmd_to_array(char *str);
+static char *cmd_to_string(Node *n);
+
+/* reads a fakefile from the standard input (console) and stores it in 
+a Fakefile struct, which is a dynamically allocatedlinked data structure.
+ignores blank lines and comment lines. cannot have comment or blank line 
+after target and before action. max line length 1000 characters */
+void read_fakefile(Fakefile *fakefile) {
+  char str[1002] = ""; /* 2 extra characters for newline char and null char */
+  char str2[1002] = "";
+  char **line1, **line2;
+  Node *curr;
+  
+  if (fakefile == NULL)
+    return;
+
+  /* set fakefile's head pointer */
+  fgets(str, 1002, stdin);
+  while (!feof(stdin) &&
+	 (strcmp(str, "\n") == 0 || strchr(str, '#') - str == 0))
+    fgets(str, 1002, stdin);
+  if ( !feof(stdin) )
+    fgets(str2, 1002, stdin);
+
+  if (strlen(str) == 0 || strlen(str2) == 0) {
+    fakefile->head = NULL;
+  }
+  else {
+    line1 = split(str);
+    line2 = split(str2);
+    fakefile->head = create_node(line1, line2);
+    free(line1);
+    line1 = NULL;
+    free(line2);
+    line2 = NULL;
+  }
+  
+  /* set the rest of the fakefile nodes */
+  curr = fakefile->head;
+  while ( !feof(stdin) ) {
+    fgets(str, 1002, stdin);
+    while (!feof(stdin) &&
+	   (strcmp(str, "\n") == 0 || strchr(str, '#') - str == 0))
+      fgets(str, 1002, stdin);
+    if ( !feof(stdin) )
+      fgets(str2, 1002, stdin);
+
+    if (strlen(str) == 0 || strlen(str2) == 0) {
+      curr->next = NULL;
+    }
+    else {
+      if (!feof(stdin)) {
+	line1 = split(str);
+	line2 = split(str2);
+	curr->next = create_node(line1, line2);
+	free(line1);
+	line1 = NULL; /* for good measure */
+	free(line2);
+	line2 = NULL;
+      }
+    }
+    curr = curr->next;
+  }  
+}
+
+/* display the contents of a fakefile struct */
+void print_fakefile(Fakefile *fakefile) {
+  Node *curr = fakefile->head;
+  Dependency *dep;
+  Command *cmd;
+  
+  if (fakefile == NULL)
+    return;
+
+  while (curr != NULL) {
+    /* check for null ?? */
+    printf("%s:", curr->target);
+    dep = curr->dependency;
+    while (dep != NULL) {
+      printf(" %s", dep->name);
+      dep = dep->next;
+    }
+    printf("\n\t");
+    
+    cmd = curr->command;
+    printf(curr->command->name);
+    cmd = cmd->next;
+    while (cmd != NULL) {
+      printf(" %s", cmd->name);
+      cmd = cmd->next;
+    }
+    printf("\n\n");
+
+    curr = curr->next;
+  }
+}
+
+/* free the dynamically allocated memory associate with a fakefile */
+void clear_fakefile(Fakefile *fakefile) {
+  Node *temp;
+  
+  while (fakefile->head != NULL) {
+    temp = fakefile->head->next;
+    free_node(fakefile->head);
+    fakefile->head = temp;
+  }
+}
+
+/* execute the actions associated with the specified target and its
+   dependencies */
+int make_target(Fakefile *fakefile, const char target_name[]) {
+  int i = 0;
+  Dependency *d;
+  setvbuf(stdout, NULL, _IONBF, 0);
+
+  if (fakefile == NULL || target_name == NULL)
+    return 0;
+
+  if (!exists(target_name) && !target_exists(fakefile, target_name) )
+    return -1;
+  
+  if (target_exists(fakefile, target_name) ) {
+    d = find_target(fakefile, target_name)->dependency;
+    while (d != NULL) {
+      i = make_target(fakefile, d->name);
+      if (i != 0)
+	exit(i); /* exit if 0 not returned */
+      else
+	d = d->next;
+    }
+    
+    /* only remake file if it is outdated */
+    if (target_older_than_dep(fakefile, target_name)) {
+      printf("%s:\n", target_name);
+      print_cmd(find_target(fakefile, target_name));
+      return execute_command(cmd_to_array(cmd_to_string(
+	     find_target(fakefile, target_name))));
+    }
+    else
+      return 0;
+  }
+
+  return 0;
+}
+
+/********* HELPER FUNCTIONS ************/
+
+/* true if a file exists, false otherwise */
+static int exists(const char *filename) {
+  struct stat buf;
+  errno = 0;
+  stat(filename, &buf);
+  if (errno == ENOENT)
+    return 0;
+  else
+    return 1;
+}
+
+/* returns 1 if file 1 is newer, 0 if file 2 is newer, or -1 if one or both 
+ don't exist */
+static int is_newer(String file1, String file2) {
+  struct stat buf1, buf2;
+  stat(file1, &buf1);
+  stat(file2, &buf2);
+  if ( exists(file1) && exists(file2) ) {
+    if (buf1.st_mtime > buf2.st_mtime)
+      return 1;
+    return 0;
+  }
+  return -1;
+}
+
+/* returns a pointer to a dependency with param dependency_name */
+static Dependency *create_dependency(String dependency_name) {
+  Dependency *d = malloc(sizeof(Dependency));
+
+  if (d == NULL) {
+    printf("Memory allocation failed!\n");
+    exit(-1);
+  }
+
+  d->name = malloc(sizeof(char) * (strlen(dependency_name) + 1));
+  strcpy(d->name, dependency_name);
+  free(dependency_name);
+  d->next = NULL;
+  return d;
+}
+
+/* creates a node with the split() arrays of the input lines */
+static Node *create_node(char **list, char **cmd) {
+  Node *n = malloc(sizeof(Node));
+
+  if (n == NULL) {
+    printf("Memory allocation failed!\n");
+    exit(-1);
+  }
+
+  n->target = malloc(sizeof(char) * (strlen(list[0]) + 1));
+
+  if (n->target == NULL) {
+    printf("Memory allocation failed!\n");
+    exit(-1);
+  }
+
+  strcpy(n->target, list[0]);
+  free(list[0]);
+  n->dependency = create_dep_list(n, list);
+  n->command = create_cmd_list(n, cmd);
+  n->next = NULL;
+  return n;
+}
+
+/* creates the dependency linked list from the array */
+static Dependency *create_dep_list(Node *n, char **list) {
+  int i = 1;
+  Dependency *curr;
+  
+  if (list[i] != NULL) {
+    n->dependency = create_dependency(list[i]);
+    curr = n->dependency;
+    while(list[i + 1] != NULL) {
+      curr->next = create_dependency(list[i + 1]);
+      curr = curr->next;
+      i++;
+    }
+  }
+  else
+    n->dependency = NULL;
+  return n->dependency;
+}
+
+/* returns a pointer to a Command with command_name */
+static Command *create_command(String command_name) {
+  Command *d = malloc(sizeof(Command));
+
+  if (d == NULL) {
+    printf("Memory allocation failed!\n");
+    exit(-1);
+  }
+
+  d->name = malloc(sizeof(char) * (strlen(command_name) + 1));
+
+  if (d->name == NULL) {
+    printf("Memory allocation failed!\n");
+    exit(-1);
+  }
+
+  strcpy(d->name, command_name);
+  free(command_name);
+  d->next = NULL;
+  return d;
+}
+
+/* creates the command linked list based on the specified array */
+static Command *create_cmd_list(Node *n, char **list) {
+  int i = 0;
+  Command *curr;
+  
+  if(list[i] != NULL) {
+    n->command = create_command(list[i]);
+    curr = n->command;
+    while(list[i + 1] != NULL) {
+      curr->next = create_command(list[i + 1]);
+      curr = curr->next;
+      i++;
+    }
+  }
+  else
+    n->command = NULL;
+  return n->command;
+}
+
+/* frees the memory associated with Node n */
+static void free_node(Node *n) {
+  Dependency *d;
+  Command *c;
+  free(n->target);
+  while (n->dependency != NULL) {
+    d = n->dependency->next;
+    free(n->dependency->name);
+    free(n->dependency);
+    n->dependency = d;
+  }
+  while (n->command != NULL) {
+    c = n->command->next;
+    free(n->command->name);
+    free(n->command);
+    n->command = c;
+  }
+  free(n);
+  n = NULL;
+}
+
+/* execute the command specified, return exit status */
+static int execute_command(char *arglist[]) {
+  int i;
+  pid_t child_pid;
+  char *temp = arglist[0];
+  int j = 0;
+  child_pid = fork();
+  if( child_pid > 0 ) {
+    wait(&i);
+    i = WEXITSTATUS(i);
+    while (temp != NULL) {
+      free(temp);
+      j++;
+      temp = arglist[j];
+    }
+    free(arglist);
+    
+    return i;
+  }
+  else {
+    if (child_pid == 0)
+      execvp (arglist[0], arglist);
+    else
+      printf("Error forking child!\n");
+  }
+  return -1;
+}
+
+/* determines whether or not the target exists in the fakefile */
+static int target_exists(Fakefile *file, const char *str) {
+  /* check for null args? */
+  Node *curr = file->head;
+  while (curr != NULL) {
+    if (strcmp (str, curr->target) == 0)
+      return 1;
+    else
+      curr = curr->next;
+  }
+  return 0;
+}
+
+/* return a pointer to the specified target name */
+static Node *find_target(Fakefile *file, const char *str) {
+  Node *curr = file->head;
+  while (curr != NULL) {
+    if (strcmp (str, curr->target) == 0)
+      return curr;
+    else
+      curr = curr->next;
+  }
+  return NULL;
+}
+
+/* check if a target is out of date based on dependencies */
+/* assume target exists */
+static int target_older_than_dep (Fakefile *f, const char *target) {
+  Node *n = find_target(f, target);
+  Dependency *curr = n->dependency;
+  if ( !exists(target)) /* target is not a file name */
+    return 1;
+  while (curr != NULL) {
+    if (is_newer(curr->name, n->target))
+      return 1;
+    else
+      curr = curr->next;
+  }
+  return 0;
+}
+
+/* print a command based on Node n's command linked list */
+static void print_cmd(Node *n) {
+  Command *cmd;
+  cmd = n->command;
+  printf("%s", cmd->name);
+  cmd = cmd->next;
+  while (cmd != NULL) {
+    printf(" %s", cmd->name);
+    cmd = cmd->next;
+  }
+  printf("\n\n");
+}
+
+/* takes a command linked list and converts it back into an array */
+static char **cmd_to_array(char *str) {
+  char **temp;
+  temp = split(str);
+  free(str);
+  return temp;
+}
+
+/* takes a linked list and converts it back into a string so split() can
+   be called in cmd_to_array */
+static char *cmd_to_string(Node *n) {
+  int size = 0;
+  Command *cmd = n->command;
+  char *str;
+  while (cmd != NULL) {
+    size = size + strlen(cmd->name) + 1; /* +1 is for space */
+    cmd = cmd->next;
+  }
+
+  str = calloc(size + 1, sizeof(char)); /* +1 is for null char */
+
+  if (str == NULL) {
+    printf("Memory allocation failed!\n");
+    exit(-1);
+  }
+
+  str[0] = '\0';
+  cmd = n->command;
+  while (cmd != NULL) {
+    strcat(str, cmd->name);
+    strcat(str, " ");
+    cmd = cmd->next;
+  }
+  return str;
+}

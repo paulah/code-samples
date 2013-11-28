@@ -1,0 +1,20 @@
+halt
+ret
+popl %ebx
+irmovl $00216, %ebp
+rmmovl %edx, 13107(%ebx)
+mrmovl 17476(%ecx), %esp
+rdch %edx
+irmovl $65535, %ebp
+Correct value was returned by all print_instruction() calls.
+
+0x000: nop
+0x004: halt
+0x008: pushl %edx
+0x00c: popl %ebx
+0x010: rdch %edx
+0x014: irmovl $65535, %ebp
+0x018: irmovl $00216, %ebp
+0x01c: rmmovl %edx, 13107(%ebx)
+0x020: mrmovl 17476(%ecx), %esp
+Correct value was returned by disassemble().

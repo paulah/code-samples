@@ -1,0 +1,4 @@
+0 threads: 4.783621s wall; 4.433326s user; 0.330950s sys
+1 threads: 4.608956s wall; 4.512314s user; 0.080987s sys
+2 threads: 2.420417s wall; 4.524312s user; 0.087987s sys
+4 threads: 1.306415s wall; 4.440325s user; 0.065990s sys

@@ -1,0 +1,22 @@
+                      | # Paula Huang
+                      | # 112419189
+                      | # phuang
+  0x000: f208         | 	rdint	%eax		# x
+  0x002: f238         | 	rdint	%ebx		# y
+  0x004: 308101000000 | 	irmovl	$1, %ecx	# result
+                      | 
+  0x00a: 6413         | 	multl	%ecx, %ebx
+  0x00c: 7127000000   | 	jle	Endif		# if y > 0
+  0x011: 308201000000 | 	irmovl	$1, %edx
+  0x017: 6423         | Loop:	multl   %edx, %ebx	# loop y times
+  0x019: 7127000000   | 	jle	Endif
+                      | 	
+  0x01e: 6401         | 	multl	%eax, %ecx	# result *= x
+  0x020: 6123         | 	subl	%edx, %ebx	# y--
+  0x022: 7017000000   | 	jmp	Loop
+                      | 	
+  0x027: 30820a000000 | Endif:	irmovl	$10, %edx
+  0x02d: f318         | 	wrint	%ecx
+  0x02f: f128         | 	wrch	%edx
+                      | 
+  0x031: 10           | 	halt	

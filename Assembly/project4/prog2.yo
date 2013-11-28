@@ -1,0 +1,78 @@
+                      | #Paula Huang
+                      | #112419189
+                      | #phuang
+  0x000: 308000000000 | 		irmovl	$0, %eax	# num = 0
+  0x006: f238         | 		rdint	%ebx		# scanf(&n)
+  0x008: 308464000000 | 		irmovl	$100, %esp	
+  0x00e: 308100000000 | 		irmovl	$0, %ecx	# while (n != 0 && num < 100)
+  0x014: 6063         | While: 		addl	%esi, %ebx
+  0x016: 7341000000   | 		je	Endwhile
+  0x01b: 2005         | 		rrmovl	%eax, %ebp
+  0x01d: 6145         | 		subl	%esp, %ebp
+  0x01f: 7541000000   | 		jge	Endwhile
+                      | 					# inside while loop
+  0x024: 308104000000 | 		irmovl	$4, %ecx	# arr[num] = n
+  0x02a: 6401         | 		multl	%eax, %ecx
+  0x02c: 403190010000 | 		rmmovl	%ebx, arr(%ecx)	
+  0x032: 308101000000 | 		irmovl	$1, %ecx	# num++
+  0x038: 6010         | 		addl	%ecx, %eax
+  0x03a: f238         | 		rdint	%ebx		# scanf(&n)
+  0x03c: 7014000000   | 		jmp While
+                      | 					# for (i = 1; i < num; i++)
+  0x041: 308101000000 | Endwhile: 	irmovl	$1, %ecx	# i = 1
+  0x047: 2004         | For:		rrmovl	%eax, %esp	# copy num
+  0x049: 6114         | 		subl	%ecx, %esp
+  0x04b: 71be000000   | 		jle	Endfor
+                      | 					# inside for
+  0x050: 2012         | 		rrmovl	%ecx, %edx	# j = i
+  0x052: 308704000000 | 		irmovl	$4, %edi	# x = arr[i]
+  0x058: 6417         | 		multl	%ecx, %edi
+  0x05a: 505790010000 | 		mrmovl	arr(%edi), %ebp # %ebp: x
+                      | 				   	# inner while
+  0x060: 308701000000 | While2:	 	irmovl	$1, %edi	# while (j > 0 && x < arr[j-1])
+  0x066: 6472         | 		multl	%edi, %edx
+  0x068: 71a3000000   | 		jle	Endwhile2
+  0x06d: 2026         | 		rrmovl	%edx, %esi	# copy j to get j-1
+  0x06f: 6176         | 		subl   	%edi, %esi	# j-1
+  0x071: 308704000000 | 		irmovl	$4, %edi
+  0x077: 6467         | 		multl	%esi, %edi
+  0x079: 504790010000 | 		mrmovl	arr(%edi), %esp	# %esp: arr[j-1]
+  0x07f: 2056         | 		rrmovl 	%ebp, %esi 	# %esi gets copy of x
+  0x081: 6146         | 		subl	%esp, %esi
+  0x083: 75a3000000   | 		jge	Endwhile2
+  0x088: 308704000000 | 		irmovl	$4, %edi	# get arr[j]
+  0x08e: 6427         | 		multl	%edx, %edi
+  0x090: 404790010000 | 		rmmovl	%esp, arr(%edi)	# arr[j] = arr[j - 1]
+  0x096: 308601000000 | 		irmovl	$1, %esi
+  0x09c: 6162         | 		subl	%esi, %edx	# j--
+  0x09e: 7060000000   | 		jmp	While2
+  0x0a3: 308704000000 | Endwhile2: 	irmovl	$4, %edi	# arr[j] = x
+  0x0a9: 6427         | 		multl	%edx, %edi
+  0x0ab: 405790010000 | 		rmmovl	%ebp, arr(%edi)
+  0x0b1: 308701000000 | 		irmovl	$1, %edi	# i++
+  0x0b7: 6071         | 		addl	%edi, %ecx
+  0x0b9: 7047000000   | 		jmp	For
+                      | 					# for (i=0; i < num; i++)
+  0x0be: 308100000000 | Endfor:		irmovl	$0, %ecx	# i = 0
+  0x0c4: 308201000000 | 		irmovl	$1, %edx
+  0x0ca: 2007         | For2:		rrmovl	%eax, %edi	# %edi gets num's copy
+  0x0cc: 6117         | 		subl	%ecx, %edi
+  0x0ce: 71f8000000   | 		jle	Endfor2
+                      | 					# in for2
+  0x0d3: 308604000000 | 		irmovl	$4, %esi
+  0x0d9: 6416         | 		multl	%ecx, %esi	# 4*i
+  0x0db: 505690010000 | 		mrmovl	arr(%esi), %ebp # %ebp = arr[i]
+  0x0e1: f358         | 		wrint	%ebp	   	# printf arr[i]
+  0x0e3: 308320000000 | 		irmovl  $32, %ebx	# print a space
+  0x0e9: f138         | 		wrch	%ebx
+  0x0eb: 308301000000 | 		irmovl	$1, %ebx
+  0x0f1: 6031         | 		addl	%ebx, %ecx	# i++
+  0x0f3: 70ca000000   | 		jmp	For2
+                      | 					#
+  0x0f8: 30820a000000 | Endfor2: 	irmovl	$10, %edx	# print \n
+  0x0fe: f128         | 		wrch	%edx
+  0x100: 10           | 		halt
+                      | 					#
+  0x190:              | 		.pos	400
+  0x190:              | arr: 
+  0x320:              | 		.pos	800

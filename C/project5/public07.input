@@ -1,0 +1,3 @@
+file: older_file
+	echo I should NOT print this because dependency is older
+

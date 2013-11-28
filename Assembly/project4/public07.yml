@@ -1,0 +1,5 @@
+input: |
+ catastrophe
+ cat
+output: 0
+program: prog3.yo

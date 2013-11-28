@@ -1,0 +1,25 @@
+#!/bin/tcsh
+
+make -f Makefile all
+
+echo ""
+
+foreach test_file (public*.x)
+
+  set test = $test_file:r
+
+  if (-e $test.input) then
+    $test.x < $test.input | cmp -s - $test.output
+    set result = $status
+  else
+    $test.x | cmp -s - $test.output
+    set result = $status
+  endif
+
+  if ($result != 0) then
+    echo "Test $test FAILED."
+  else
+    echo "Test $test passed."
+  endif
+
+end

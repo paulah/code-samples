@@ -1,0 +1,2 @@
+nonexistent-file: file older_file newer_file
+	echo I should print this because target does not exist

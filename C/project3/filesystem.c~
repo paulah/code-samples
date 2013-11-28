@@ -1,0 +1,544 @@
+/* Paula Huang
+ * TerpConnect: phuang
+ * UID: 112419189
+ * CMSC216 Section 0202
+ *
+ * I pledge on my honor that I have neither given nor
+ * received any unauthorized assistance on this assignment.
+ */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "filesystem.h"
+
+/*filesystem.c simulates UNIX filesystem managemement commands to create
+subdirectories, files, and perform operations on them such as editing files
+and removing or viewing files. The filesystem also stores the current directory
+and has the ability to display the path to the current directory.
+
+int functions return 0 upon success. */
+
+static int contains(Dir *current, const char* filename);
+static File *make_file(const char *arg);
+static Dir *make_dir(Dir *parent, const char *arg);
+static void remove_files(Dir *dir);
+static void remove_subdirchain(Dir *dir);
+static void remove_filelines(File *fl);
+
+/*mkfs creates a new filesystem with a root directory */
+void mkfs(Filesystem *files) {
+  if (files != NULL) {
+    files->root = make_dir(NULL, "");
+    if (files->root != NULL) { /*more error checking! */
+      files->currdir = files->root;
+    }
+  }
+}
+
+/* touch creates a new file or directory in the current directory
+   with name arg */
+int touch (Filesystem *files, const char arg[]) {
+  File *fp, *tmpptr;
+  
+  /*check for parameter validity */
+  if (files == NULL || arg == NULL)
+    return 0;
+
+  if(!strcmp(arg, "") || (strlen(arg) > 1 && strchr(arg, '/') != NULL))
+    return -1;
+
+  if (contains(files->currdir, arg) || !strcmp(arg, ".") ||
+     !strcmp(arg, "..") || !strcmp(arg, "/"))
+    return 0;
+
+  fp = files->currdir->files;  
+
+  if(fp == NULL) /* add a file, no current files */
+    files->currdir->files = make_file(arg);
+
+  else {
+    while (fp != NULL) {
+      if (strcmp(arg, fp->name) < 0) { /* add files alphabetically! */
+	tmpptr = files->currdir->files;
+	files->currdir->files = make_file(arg);
+	files->currdir->files->next = tmpptr;
+	return 0;
+      }
+      else if(fp->next == NULL) {
+	fp->next = make_file(arg);
+	return 0;
+      }
+      else if (strcmp(arg, fp->name) > 0 &&
+	      strcmp(arg, fp->next->name) < 0) {
+	tmpptr = fp->next;
+	fp->next = make_file(arg);
+	fp->next->next = tmpptr;
+	return 0;
+      }
+      fp = fp->next;
+    }
+  }
+  return 0;
+}
+
+/* mkdir creates a new subdirectory in the current directory */
+int mkdir(Filesystem *files, const char arg[]) {
+  Dir *tmpptr, *dp;
+
+  if (files == NULL || arg == NULL)
+    return 0;
+
+  if (!strcmp(arg, "") || strchr(arg, '/') != NULL || 
+     contains(files->currdir, arg) || !strcmp(arg, ".") || !strcmp(arg, ".."))
+    return -1;
+
+  dp = files->currdir->subdir;
+
+  if (dp == NULL) /* this is the first subdir */
+    files->currdir->subdir = make_dir(files->currdir, arg);
+
+  else {
+    while (dp != NULL) {
+      if (strcmp(arg, dp->name) < 0) { /* keep alphabetical */
+	tmpptr = files->currdir->subdir;
+	files->currdir->subdir = make_dir(files->currdir, arg);
+	files->currdir->subdir->next = tmpptr;
+	files->currdir->subdir->parent = files->currdir; 
+	return 0;
+      }
+      else if (dp->next == NULL) {
+	dp->next = make_dir(files->currdir, arg);
+	return 0;
+      }
+      else if (strcmp(arg, dp->name) > 0 &&
+	      strcmp(arg, dp->next->name) < 0) {
+	tmpptr = dp->next;
+	dp->next = make_dir(files->currdir, arg);
+	dp->next->parent = files->currdir;
+	dp->next->next = tmpptr;
+	return 0;
+      }
+      dp = dp->next;
+    }
+  }
+  return 0;
+}
+
+/* cd switches the current directory based on arg */
+int cd(Filesystem *files, const char arg[]) {
+  Dir *tempdir;
+
+  /* check for validity */
+  if (files == NULL || arg == NULL || !strcmp(arg, "."))
+    return 0;
+
+  if (!strcmp(arg, "..")) {
+    if(files->currdir != files->root) /* check for root */
+      files->currdir = files->currdir->parent;
+    return 0;
+  }
+  
+  if (!strcmp(arg, "/")) {
+    files->currdir = files->root;
+    return 0;
+  }
+
+  if (!contains(files->currdir, arg) || contains(files->currdir, arg) == 1 ||
+     (strlen(arg) > 1 && strchr(arg, '/') != NULL))
+    return -1;
+
+  /* arg must be a subdir */
+  tempdir = files->currdir->subdir;
+  while (tempdir != NULL) {
+    if (tempdir->name != NULL && strcmp(tempdir->name, arg) == 0)
+      files->currdir = tempdir;
+    tempdir = tempdir->next;
+  }
+
+  return 0;
+}
+
+/* ls lists the files and subdirectories of the specified/current directory.
+   subdirectories and followed by a "/" */
+int ls(Filesystem *files, const char arg[]) {
+  File *fp;
+  Dir *dp;
+  
+  if (files == NULL || arg == NULL)
+    return 0;
+  
+  if (!contains(files->currdir, arg) && strcmp(arg, "/") && strcmp(arg, ".")
+      && strcmp(arg, "..") && strcmp(arg, ""))
+    return -1;
+
+  if (contains(files->currdir, arg) == 1) /*fix for root */
+    printf("%s\n", arg);
+
+  dp = files->currdir->subdir;
+  fp = files->currdir->files;
+
+  if (!strcmp(arg, "/")) {
+    dp = files->root->subdir;
+    fp = files->root->files;
+  }
+  
+  if (!strcmp(arg, "..")) {
+    if(files->currdir == files->root) {
+      dp = files->root->subdir;
+      fp = files->root->files;
+    }
+    else {
+      dp = files->currdir->parent->subdir;
+      fp = files->currdir->parent->files;
+    }
+  } 
+  
+  if (contains(files->currdir, arg) == 2) { /* it's a subdir */
+    while (dp != NULL && strcmp(dp->name, arg) != 0)
+      dp = dp->next;
+    fp = dp->files;
+    dp = dp->subdir;
+  }
+  
+  /* MUST list files and subdir in alphabetical order. Both of these are
+     stored as separate sorted linked lists. Travel through each starting
+     at the beginning and comparing elements to merge the two */
+  while (!(fp == NULL && dp == NULL)) {
+    if (fp == NULL) {
+      while (dp != NULL) {
+	printf("%s/\n", dp->name);
+	dp = dp->next;
+      }
+    }
+    else if (dp == NULL) {
+      while (fp != NULL) {
+	printf("%s\n", fp->name);
+	fp = fp->next;
+      }
+    }
+    else {
+      if (strcmp(fp->name, dp->name) < 0) {
+	printf("%s\n", fp->name);
+	fp = fp->next;
+      }
+      else {
+	printf("%s/\n", dp->name); /* print / after subdir */
+	dp = dp->next;
+      }
+    }
+  }
+  return 0;
+}
+/* pwd prints the path to the current directory */
+void pwd(Filesystem *files) {
+  char *str, *str2;
+  Dir *tempdir;
+
+  if (files == NULL)
+    return;
+
+  /* str is dynamically allocated and stores the path as it is built from
+     the current directory up to the root directory */
+  str = malloc(sizeof(char)*(strlen(files->currdir->name) + 1));
+  str2 = malloc(sizeof(char)*(strlen(files->currdir->name) + 1));
+
+  if (str == NULL || str2 == NULL) {
+    printf("Memory allocation failed!\n");
+    return;
+  }
+    
+  tempdir = files->currdir;
+  strcpy(str, files->currdir->name);
+  strcpy(str2, files->currdir->name);
+
+  if (tempdir->parent != NULL)
+    tempdir = tempdir->parent;
+  while (tempdir != files->root) {
+    str = realloc(str, sizeof(char) * strlen(str) +
+		  sizeof(char)*strlen(str2) + 2);
+    str2 = realloc(str2, sizeof(char) * strlen(str) +
+		  sizeof(char)*strlen(str2) + 2);
+    
+    if(str == NULL || str2 == NULL) {
+      printf("Memory allocation failed!\n");
+      return;
+    }
+
+    strcpy(str, tempdir->name);
+    str = strcat(strcat(str, "/"), str2);
+    strcpy(str2, str);
+    tempdir = tempdir->parent;
+  }
+  printf("/%s\n", str);
+  free(str);
+  free(str2);
+  str = NULL; /* for good measure */
+  str2 = NULL;
+}
+
+/* frees the filesystem's dynamically allocated memory */
+void rmfs(Filesystem *files) {
+  if(files == NULL)
+    return;
+  remove_subdirchain(files->root);
+  remove_files(files->root);
+  free(files->root->name);
+  free(files->root);
+}
+
+/* rm removes the file arg from the current directory, or the directory
+arg from the current directory is that directory does not contain files or
+subdirectories */
+int rm(Filesystem *files, const char arg[]) {
+  File *tempfile, *temp;
+  Dir *tempdir, *dtemp;
+
+  if (files == NULL || arg == NULL)
+    return 0;
+  
+  tempfile = files->currdir->files;
+  tempdir = files->currdir->subdir;
+  
+  if (!contains(files->currdir, arg) || strcmp(arg, ".") == 0 ||
+     strcmp(arg, "..") == 0 || strcmp(arg, "/") == 0 ||
+     strchr(arg, '/') != NULL || strcmp(arg, "") == 0)
+    return -1;
+
+  if (contains(files->currdir, arg) == 1) { /* is a file */
+    if (strcmp(tempfile->name, arg) == 0) {
+      temp = tempfile;
+      files->currdir->files = tempfile->next;
+      free(temp->name);
+      remove_filelines(temp);
+      temp->name = NULL;
+      free(temp);
+      temp = NULL;
+      return 0;
+    }
+    else {
+      while (tempfile != NULL && tempfile->next != NULL) {
+	if (strcmp(tempfile->next->name, arg) == 0) {
+	  temp = tempfile->next;
+	  tempfile->next = tempfile->next->next;
+	  remove_filelines(temp);
+	  free(temp->name);
+	  temp->name = NULL;
+	  free(temp);
+	  temp = NULL;
+	  return 0;
+	}
+	tempfile = tempfile->next;
+      }
+    }
+  }
+  if (contains(files->currdir, arg) == 2) { /* is a subdirectory */
+    if (strcmp(files->currdir->subdir->name, arg) == 0) {
+      /* ^ first subdirectory matches */
+      if (files->currdir->subdir->files == NULL &&
+	 files->currdir->subdir->subdir == NULL) {
+	dtemp = files->currdir->subdir;
+	files->currdir->subdir = files->currdir->subdir->next;
+	free(dtemp->name);
+	free(dtemp);
+	dtemp = NULL;
+      }
+      else /*non empty subdirectory */
+	return -1;
+    }
+    else {
+      while (tempdir->next != NULL) {
+	if (strcmp(tempdir->next->name, arg) == 0) {
+	  if (tempdir->next->files == NULL && tempdir->next->subdir == NULL) {
+	    dtemp = tempdir->next;
+	    tempdir->next = tempdir->next->next;
+	    free(dtemp->name);
+	    free(dtemp);
+	    dtemp = NULL;
+	    return 0;
+	  }
+	  else
+	    return -1; /*non empty subdirectory */
+	}
+        tempdir = tempdir->next;
+      }
+    }
+  }
+  return 0;
+}
+
+/* addline reads a line of input and appends it to the file named arg */
+int addline(Filesystem *files, const char arg[]) {
+  File *tempfile;
+  Fileline *temp;
+
+  if(files == NULL)
+    return 0;
+
+  tempfile = files->currdir->files;  
+  
+  if (!contains(files->currdir, arg) || contains(files->currdir, arg) == 2 ||
+     strcmp(arg, ".") == 0 || strcmp(arg, "..") == 0 || strcmp(arg, "") == 0 ||
+     strchr(arg, '/') != NULL)
+    return -1;
+
+  while (strcmp(tempfile->name, arg) != 0)
+    tempfile = tempfile->next;
+  
+  if (tempfile->content == NULL) {
+    tempfile->content = malloc(sizeof(Fileline));
+    tempfile->content->line = malloc(sizeof(char) * 82);
+    
+    if (tempfile->content == NULL || tempfile->content->line == NULL) {
+      printf("Memory allocation failed!\n");
+      return -1;
+    }
+
+    tempfile->content->next = NULL; /* file is empty */
+    fgets(tempfile->content->line, 81, stdin); /* line max 80 */
+  }
+  else { /* append to the end */
+    temp = tempfile->content;
+    while (temp->next != NULL)
+      temp = temp->next;
+    temp->next = malloc(sizeof(Fileline));
+    temp->next->line = malloc(sizeof(char) * 82);
+    temp->next->next = NULL;
+    fgets(temp->next->line, 81, stdin);
+  }
+  
+  return 0;
+}
+
+/* cat displays the contents of a file */
+int cat(Filesystem *files, const char arg[]) {
+  File *tempfile;
+  Fileline *temp;
+  
+  if (files == NULL || arg == NULL)
+    return 0;
+
+  tempfile = files->currdir->files;
+  
+  /* check if valid */
+  if (!contains(files->currdir, arg) || contains(files->currdir, arg) == 2 ||
+     strcmp(arg, ".") == 0 || strcmp(arg, "..") == 0 || strcmp(arg, "") == 0 ||
+     strchr(arg, '/') != NULL)
+    return -1;
+
+  while (strcmp(tempfile->name, arg) != 0)
+    tempfile = tempfile->next;
+
+  if (tempfile->content == NULL)
+    return 0;
+  temp = files->currdir->files->content;
+
+  while (temp != NULL) {
+    printf("%s", temp->line); /* lines should already have newline char */
+    temp = temp->next;
+  }
+  return 0;
+}
+
+/* helper method returns 2 if filename is a subdir and 1 if it is a file,
+   0 if not found */
+static int contains(Dir *current, const char* filename) {
+  int result = 0;
+  Dir *tempdir;
+  File *tempfile;
+  if (current == NULL)
+    return 0;
+  tempdir = current->subdir;
+  tempfile = current->files;
+  while (tempdir != NULL) {
+    if (tempdir->name != NULL && strcmp(tempdir->name, filename) == 0)
+      result = 2;
+    tempdir = tempdir->next;
+  }
+  while (tempfile != NULL) {
+    if (tempfile->name != NULL && strcmp(tempfile->name, filename) == 0)
+      result = 1;
+    tempfile = tempfile->next;
+  }
+
+  return result;    
+}
+
+/* creates a file and returns a pointer to it */
+static File *make_file(const char *arg) {
+  File *fp = malloc(sizeof(File));
+  fp->name = malloc(sizeof(char)*(strlen(arg)+1));
+  
+  if(fp == NULL || fp->name == NULL)
+    return NULL;
+
+  fp->content = NULL;
+
+  strcpy(fp->name, arg);
+  fp->next = NULL;
+
+  return fp;
+}
+
+/* creates a directory and returns a pointer to it */
+static Dir *make_dir(Dir *parent, const char *arg) {
+  Dir *dp = malloc(sizeof(Dir));
+  dp->name = malloc(sizeof(char) * (strlen(arg) + 1));
+  if(dp == NULL || dp->name == NULL)
+    return NULL; /*FIX*/
+
+  strcpy(dp->name, arg);
+      
+  dp->parent = parent;
+  dp->subdir = NULL;
+  dp->next = NULL;
+  dp->files = NULL;
+
+  return dp;
+}
+
+/* removes a linked list of files, frees the corresponding memory */
+void remove_files(Dir *dir) {
+  File *tmpptr;
+  if (dir != NULL) {
+    while (dir->files != NULL) {
+      tmpptr = dir->files;
+      dir->files = dir->files->next;
+      free(tmpptr->name);
+      remove_filelines(tmpptr);
+      free(tmpptr->content);
+      free(tmpptr);
+    }
+  }
+}
+
+/* removes all the subdirectories of the given directory, recursively */
+static void remove_subdirchain(Dir *dir) {
+  Dir *temp;
+  while (dir->subdir != NULL) {
+    if(dir->subdir->subdir != NULL)
+      remove_subdirchain(dir->subdir);
+    else {
+      temp = dir->subdir;
+      dir->subdir = dir->subdir->next;
+      remove_files(temp);
+      free(temp->name);
+      free(temp);
+    }
+  }
+}
+
+/* removes all the lines of a given file */
+static void remove_filelines(File *fl) {
+  /*check for null arg */
+  Fileline *temp;
+  if (fl == NULL)
+    return;
+  temp = fl->content;
+  while (fl->content != NULL) {
+    temp = fl->content;
+    fl->content = fl->content->next;
+    free(temp->line);
+    free(temp);
+  }
+}

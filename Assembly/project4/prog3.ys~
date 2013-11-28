@@ -1,0 +1,77 @@
+	irmovl	$-1, %ebx	# found = -1
+	irmovl	$0, %eax	# i = 0
+Do:	rdch  	%edx
+	irmovl	$4, %edi
+	multl	%eax, %edi
+	rmmovl	%edx, arr(%edi)
+	irmovl	$1, %edi
+	addl	%edi, %eax
+	irmovl	$10, %edi
+	subl	%edx, %edi
+	jne	Do
+	irmovl	$1, %edi
+	subl	%edi, %eax
+	irmovl	$4, %edi
+	multl	%eax, %edi
+	irmovl	$0, %esp
+	rmmovl	%esp, arr(%edi)
+	irmovl	$0, %eax	# i = 0
+Do2:	rdch  	%edx
+	irmovl	$4, %edi
+	multl	%eax, %edi
+	rmmovl	%edx, arr2(%edi)
+	irmovl	$1, %edi
+	addl	%edi, %eax
+	irmovl	$10, %edi
+	subl	%edx, %edi
+	jne	Do2
+	irmovl	$1, %edi
+	subl	%edi, %eax
+	irmovl	$4, %edi
+	multl	%eax, %edi
+	irmovl	$0, %esp
+	rmmovl	%esp, arr2(%edi)
+	irmovl	$0, %eax	# i=0
+While:	irmovl	$4, %esp	# while s[i] != '\0' && found == -1
+	multl	%eax, %esp
+	mrmovl	arr(%esp), %edx	#edx gets s[i]
+	irmovl	$0, %edi
+	addl	%edi, %edx
+	je	Endwhile
+	irmovl	$-1, %edi		
+	subl	%ebx, %edi
+	jne	Endwhile
+	irmovl	$0, %ecx	# %ecx: j = 0
+While2: rrmovl	%eax, %edi	# copy i
+	addl	%ecx, %edi	# i+j
+	irmovl	$4, %esi	#
+	multl	%edi, %esi	# 4(i+j)
+	mrmovl	arr(%esi), %esp # %esp: s[i+j]
+	irmovl	$0, %ebp
+	subl	%esp, %ebp
+	je	Endwhile2
+	irmovl	$4, %esi
+	multl	%ecx, %esi
+	mrmovl	arr2(%esi), %ebp # %ebp: t[j]
+	irmovl	$0, %edi
+	subl	%ebp, %edi
+	je	Endwhile2
+	subl	%ebp, %esp
+	jne	Endwhile2
+	irmovl	$1, %esp
+	addl	%esp, %ecx	# j++	
+Endwhile2: irmovl $0, %esp	# if t[j] == '\0'
+	addl	%esp, %ebp
+	jne	Else
+	rrmovl	%eax, %ebx
+	jmp	Endif
+Else:	irmovl	$1, %esp
+	addl	%esp, %eax	#else i++ 
+Endif:	jmp	While
+Endwhile: wrint	%ebx
+	irmovl	$10, %esp
+	wrch	%esp
+	halt
+	.pos	400
+arr:	.pos	804
+arr2:

@@ -1,0 +1,30 @@
+Paula Huang
+Terpconnect: phuang
+UID: 112419189
+CMSC216 Section 0202
+
+I pledge on my honor that I have neither given nor
+received any unauthorized assistance on this assignment.
+
+1. 
+0 threads: 3.950288s wall; 3.914405s user; 0.019997s sys
+1 thread : 3.055881s wall; 2.988546s user; 0.051992s sys
+2 threads: 1.936914s wall; 3.708436s user; 0.053992s sys
+4 threads: 0.937539s wall; 2.907558s user; 0.054992s sys
+
+2. Wall time speedup (nonthreaded/threaded)
+1 thread : 1.292684
+2 threads: 2.039475
+4 threads: 4.213465
+
+3. User time speedup (nonthreaded/threaded)
+1 thread : 1.309802
+2 threads: 1.055541
+4 threads: 1.346286
+
+4. As the number of threads working on mergesort increases,
+the amount of time to perform decreases. Note that this only applies to wall
+time; there is not a significant amount of speedup in user time.
+As the number of theads doubles, speedup also doubles for wall time.
+Thus speedup should increase at a constant rate as the number of threads
+becomes larger because speedup is proportional to the number of threads.

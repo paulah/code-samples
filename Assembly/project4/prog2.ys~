@@ -1,0 +1,77 @@
+		irmovl	$0, %eax	# num = 0
+		irmovl $146, %edx #test
+		wrch %edx #test
+		rdint	%ebx		# scanf(&n)
+		irmovl	$100, %esp	
+		irmovl	$0, %ecx	# while (n != 0 && num < 100)
+While: 		addl	%esi, %ebx
+		je	Endwhile
+		rrmovl	%eax, %ebp
+		subl	%esp, %ebp
+		jge	Endwhile
+					# inside while loop
+		irmovl	$4, %ecx	# arr[num] = n
+		multl	%eax, %ecx
+		rmmovl	%ebx, arr(%ecx)	
+		irmovl	$1, %ecx	# num++
+		addl	%ecx, %eax
+		rdint	%ebx		# scanf(&n)
+		jmp While
+					# for (i = 1; i < num; i++)
+Endwhile: 	irmovl	$1, %ecx	# i = 1
+For:		rrmovl	%eax, %esp	# copy num
+		subl	%ecx, %esp
+		jle	Endfor
+					# inside for
+		rrmovl	%ecx, %edx	# j = i
+		irmovl	$4, %edi	# x = arr[i]
+		multl	%ecx, %edi
+		mrmovl	arr(%edi), %ebp # %ebp: x
+				   	# inner while
+While2:	 	irmovl	$1, %edi	# while (j > 0 && x < arr[j-1])
+		multl	%edi, %edx
+		jle	Endwhile2
+		rrmovl	%edx, %esi	# copy j to get j-1
+		subl   	%edi, %esi	# j-1
+		irmovl	$4, %edi
+		multl	%esi, %edi
+		mrmovl	arr(%edi), %esp	# %esp: arr[j-1]
+		rrmovl 	%ebp, %esi 	# %esi gets copy of x
+		subl	%esp, %esi
+		jge	Endwhile2
+		irmovl	$4, %edi	# get arr[j]
+		multl	%edx, %edi
+		rmmovl	%esp, arr(%edi)	# arr[j] = arr[j - 1]
+		irmovl	$1, %esi
+		subl	%esi, %edx	# j--
+		jmp	While2
+Endwhile2: 	irmovl	$4, %edi	# arr[j] = x
+		multl	%edx, %edi
+		rmmovl	%ebp, arr(%edi)
+		irmovl	$1, %edi	# i++
+		addl	%edi, %ecx
+		jmp	For
+					# for (i=0; i < num; i++)
+Endfor:		irmovl	$0, %ecx	# i = 0
+		irmovl	$1, %edx
+For2:		rrmovl	%eax, %edi	# %edi gets num's copy
+		subl	%ecx, %edi
+		jle	Endfor2
+					# in for2
+		irmovl	$4, %esi
+		multl	%ecx, %esi	# 4*i
+		mrmovl	arr(%esi), %ebp # %ebp = arr[i]
+		wrint	%ebp	   	# printf arr[i]
+		irmovl  $32, %ebx	# print a space
+		wrch	%ebx
+		irmovl	$1, %ebx
+		addl	%ebx, %ecx	# i++
+		jmp	For2
+					#
+Endfor2: 	irmovl	$10, %edx	# print \n
+		wrch	%edx
+		halt
+					#
+		.pos	400
+arr: 
+		.pos	800

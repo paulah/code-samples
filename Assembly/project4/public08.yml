@@ -1,0 +1,5 @@
+input: |
+ identical
+ different
+output: -1
+program: prog3.yo

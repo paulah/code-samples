@@ -1,0 +1,6 @@
+nonexistent-file:
+echo I should print this because target does not exist
+
+I should print this because target does not exist
+
+Return value of make_target: 0

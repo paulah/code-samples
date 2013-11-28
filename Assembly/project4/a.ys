@@ -1,0 +1,52 @@
+	irmovl	$0x1000, %esp
+	irmovl	$0, %eax	# %eax: num = 0
+	rdint	%ebx		# %ebx: n
+While:	irmovl	$0, %edi	# while n!=0 && num < 100
+	addl	%edi, %ebx
+	je	Endwhile
+	irmovl	$100, %edi
+	subl	%eax, %edi
+	jle	Endwhile
+	irmovl	$4, %edi	# arr[num] = n
+	multl	%eax, %edi
+	rmmovl	%ebx, arr(%edi)
+	irmovl	$1, %edi
+	addl	%edi, %eax	# num++
+	rdint	%ebx
+	jmp	While
+Endwhile: rdint	%ecx		# %ecx: x
+	pushl	%ecx
+	irmovl	$3, %edx
+	pushl	%edx
+	irmovl	$1, %edi
+	subl	%edi, %eax
+	pushl	%eax
+	irmovl	$-1, %edi
+	call	f
+	wrint	%edi
+	irmovl	$10, %esi
+	wrch	%esi
+	halt
+f:    	pushl	 %ebp	      	# save old frame
+	rrmovl	 %esp, %ebp   	# set new frame
+	mrmovl	 8(%ebp), %ecx	# load param high
+	mrmovl	 12(%ebp), %edx # load param low
+	rrmovl	 %edx, %esi	# copy low
+	subl	 %ecx, %esi
+	jle	 Endif
+	irmovl	 $-1, %edi
+	rrmovl	 %ebp, %esp
+	popl	 %ebp
+	wrint %edx ###
+	irmovl $60, %ebx
+	wrch %ebx
+	wrint %ecx ###
+	ret	 
+Endif:	irmovl $2, %edi
+	rrmovl	 %ebp, %esp
+	popl	 %ebp
+	wrint %edx
+	wrint %ecx
+	ret
+	.pos	800
+arr:

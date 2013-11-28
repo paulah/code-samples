@@ -1,0 +1,12 @@
+main.o:
+gcc -c main.c
+
+functions.o:
+gcc -c functions.c
+
+main.x:
+gcc main.o functions.o -o main.x
+
+Return value of make_target(): 0
+
+Running main.x now: 1

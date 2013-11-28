@@ -1,0 +1,70 @@
+% 
+% mkfs
+
+% mkdir animals
+
+% mkdir plants
+
+% cd plants
+
+% pwd
+/plants
+
+% cd /
+
+% cd animals
+
+% mkdir vertebrates
+
+% mkdir invertebrates
+
+% cd vertebrates
+
+% mkdir mammals
+
+% mkdir birds
+
+% mkdir fish
+
+% mkdir reptiles
+
+% mkdir amphibians
+
+% pwd
+/animals/vertebrates
+
+% cd mammals
+
+% pwd
+/animals/vertebrates/mammals
+
+% cd ..
+
+% cd birds
+
+% pwd
+/animals/vertebrates/birds
+
+% mkdir pets
+
+% cd pets
+
+% pwd
+/animals/vertebrates/birds/pets
+
+% cd /
+
+% cd animals
+
+% cd invertebrates
+
+% mkdir spiders
+
+% mkdir insects
+
+% cd insects
+
+% pwd
+/animals/invertebrates/insects
+
+% 

@@ -1,0 +1,27 @@
+#if !defined(FAKEFILE_DATASTRUCTURE_H)
+#define FAKEFILE_DATASTRUCTURE_H
+
+typedef char * String;
+
+typedef struct dep {
+  String name;
+  struct dep *next;
+} Dependency;
+
+typedef struct comm {
+  String name;
+  struct comm *next;
+} Command;
+
+typedef struct node {
+  String target;
+  Dependency *dependency;
+  Command *command;
+  struct node *next;
+} Node;
+
+typedef struct fakefile {
+  Node *head;
+} Fakefile;
+
+#endif

@@ -1,0 +1,105 @@
+# Paula Huang
+# 112419189
+# phuang
+
+# binary search program
+
+	irmovl	$0x1000, %esp
+	irmovl	$0, %eax	# %eax: num = 0
+	rdint	%ebx		# %ebx: n
+
+While:	irmovl	$0, %edi	# while n!=0 && num < 100
+	addl	%edi, %ebx	# load array while input is not 0,
+				# max 100 elements
+	je	Endwhile
+	irmovl	$100, %edi
+	subl	%eax, %edi
+	jle	Endwhile
+	irmovl	$4, %edi	# arr[num] = n
+	multl	%eax, %edi
+	rmmovl	%ebx, arr(%edi)
+	irmovl	$1, %edi
+	addl	%edi, %eax	# num++
+	rdint	%ebx
+	jmp	While
+
+Endwhile: 
+	pushl	%esi		# store space for mid local variable
+	rdint	%ecx		# %ecx: x
+	pushl	%ecx		# push x onto the stack
+	irmovl	$0, %edx
+	pushl	%edx		# push low parameter on to the stack
+	subl	%edi, %eax
+	pushl	%eax		# push high onto the stack
+	irmovl	$-1, %edi
+	call	f
+	wrint	%edi
+	irmovl	$10, %esi
+	wrch	%esi
+	halt
+
+f:    	pushl	 %ebp	      	# save old frame
+	rrmovl	 %esp, %ebp   	# set new frame
+	mrmovl	 8(%ebp), %ecx	# load param high
+	mrmovl	 12(%ebp), %edx # load param low
+
+				# if (low > high) return -1
+	rrmovl	 %edx, %esi	# copy low
+	subl	 %ecx, %esi
+	jle	 Endif
+	irmovl	 $-1, %edi	# %edi: return value!
+	jmp End
+
+Endif:	rrmovl	 %edx, %esi	# copy low
+	addl	 %ecx, %esi	# low+high
+	irmovl	 $2, %ebx
+	divl	 %ebx, %esi	# %esi: mid = (low+high) / 2
+	rmmovl	 %esi, 20(%ebp) # load mid into memory
+	
+	mrmovl	 16(%ebp), %eax # %eax: n
+	irmovl	 $4, %ebx	# if (n== arr[mid])
+	multl	 %esi, %ebx
+	mrmovl	 arr(%ebx), %ebx # %ebx: arr[mid]
+	rrmovl	 %ebx, %ecx 	# copy arr[mid]
+	subl	 %eax, %ecx
+	jne	 Elseif
+	rrmovl	 %esi, %edi	# return mid
+	jmp End
+
+Elseif:	mrmovl	20(%ebp), %esi	# load mid
+	mrmovl	16(%ebp), %eax	# %eax: n
+	irmovl	$4, %ebx	# if (n < arr[mid])
+	multl	%esi, %ebx
+	mrmovl	arr(%ebx), %ebx # %ebx: arr[mid]
+	rrmovl	%ebx, %ecx 	# copy arr[mid]
+	subl	%eax, %ecx
+	jle	Else
+	pushl	%esi
+	pushl	%eax
+	mrmovl	12(%ebp), %edx	# load param low
+	pushl	%edx
+	irmovl	$1, %ebx
+	mrmovl	20(%ebp), %esi	# load mid
+	subl	%ebx, %esi
+	pushl	%esi
+	call	f		# binary_search (arr, n, low, mid-1)
+	jmp End
+
+Else:	mrmovl	20(%ebp), %esi	# load mid
+	pushl	%esi
+	mrmovl	16(%ebp), %eax	# %eax: n
+	pushl	%eax
+	irmovl	$1, %ebx
+	addl	%esi, %ebx	# mid+1
+	pushl	%ebx
+	mrmovl	8(%ebp), %edx	# load param high
+	pushl	%edx
+	call	f		# binary_search (arr, n, mid+1, high)
+	jmp End
+
+End:	rrmovl	%ebp, %esp
+	popl	%ebp
+	ret
+
+	.pos	800
+arr:

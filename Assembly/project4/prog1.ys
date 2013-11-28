@@ -1,0 +1,22 @@
+# Paula Huang
+# 112419189
+# phuang
+	rdint	%eax		# x
+	rdint	%ebx		# y
+	irmovl	$1, %ecx	# result
+
+	multl	%ecx, %ebx
+	jle	Endif		# if y > 0
+	irmovl	$1, %edx
+Loop:	multl   %edx, %ebx	# loop y times
+	jle	Endif
+	
+	multl	%eax, %ecx	# result *= x
+	subl	%edx, %ebx	# y--
+	jmp	Loop
+	
+Endif:	irmovl	$10, %edx
+	wrint	%ecx
+	wrch	%edx
+
+	halt	

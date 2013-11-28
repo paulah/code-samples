@@ -1,0 +1,13 @@
+set verbose
+mkfs
+mkdir animals
+cd animals
+touch lion
+addline lion
+A lion has a mane.
+addline lion
+A lion is a cat.
+cat lion
+addline lion
+A lion is a wild animal.
+cat lion

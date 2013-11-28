@@ -1,0 +1,26 @@
+		irmovl	$0, %eax	# num = 0
+		irmovl $60, %edx #test
+		wrch %edx #test
+		rdint	%ebx		# scanf(&n)
+		irmovl	$100, %esp	
+		irmovl	$0, %ecx	# while (n != 0 && num < 100)
+While: 		addl	%esi, %ebx
+		je	Endwhile
+		rrmovl	%eax, %ebp
+		subl	%esp, %ebp
+		jge	Endwhile
+					# inside while loop
+		irmovl	$4, %ecx	# arr[num] = n
+		multl	%eax, %ecx
+		rmmovl	%ebx, arr(%ecx)	
+		irmovl	$1, %ecx	# num++
+		addl	%ecx, %eax
+		rdint	%ebx		# scanf(&n)
+		jmp While
+Endwhile: irmovl $4, %edi
+mrmovl arr(%edi), %esp
+wrint %esp
+halt
+.pos 400
+arr:
+.pos 800

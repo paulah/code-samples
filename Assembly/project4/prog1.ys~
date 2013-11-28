@@ -1,0 +1,2 @@
+rdint	%eax
+halt

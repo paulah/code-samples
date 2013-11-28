@@ -1,0 +1,67 @@
+% 
+% mkfs
+
+% mkdir animals
+
+% mkdir plants
+
+% cd animals
+
+% mkdir vertebrates
+
+% mkdir invertebrates
+
+% cd vertebrates
+
+% mkdir mammals
+
+% mkdir birds
+
+% mkdir fish
+
+% mkdir reptiles
+
+% mkdir amphibians
+
+% cd mammals
+
+% touch lion
+
+% rm lion
+
+% cd ..
+
+% ls
+amphibians/
+birds/
+fish/
+mammals/
+reptiles/
+
+% rm mammals
+
+% ls
+amphibians/
+birds/
+fish/
+reptiles/
+
+% rm fish
+
+% ls
+amphibians/
+birds/
+reptiles/
+
+% cd birds
+
+% touch peacock
+
+% ls
+peacock
+
+% rm peacock
+
+% ls
+
+% 
